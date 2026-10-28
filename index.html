@@ -190,12 +190,13 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);bo
 
 /* ===== лендінг учня ===== */
 .invite{position:relative;overflow:hidden;text-align:center}
-.invite .art{display:block;margin:0 auto 4px;width:min(220px,60%);height:auto}
+.invite .art{display:block;margin:0 auto 4px;width:min(200px,55%);height:auto}
 .invite h2{justify-content:center;font-size:24px}
 .invite .sub{color:var(--ink2);max-width:540px;margin:6px auto 0}
 .invite .namebox{max-width:360px;margin:14px auto 0;text-align:left}
 .invite .go{margin-top:14px}
 .invite .hint{margin-top:10px;font-size:13px;color:var(--muted);font-weight:700}
+.invite .roomtag{display:inline-block;margin-top:6px;font-weight:900;letter-spacing:3px;color:var(--gold-deep);font-size:18px}
 
 /* ===== таймер ===== */
 .timerbox{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:10px}
@@ -289,8 +290,8 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);bo
 <div class="wrap">
 
 <div class="nav">
-  <button class="navbtn" onclick="leave()">🏠 Вийти</button>
-  <span class="navtitle"><span class="lc"></span> Точка опори</span>
+  <button class="navbtn hidden" id="navLeave" onclick="showStart()">🏠 Вийти в меню</button>
+  <span class="navtitle"><span class="lc">🌅</span> Точка опори</span>
   <span class="navstep" id="navstep">—</span>
 </div>
 
@@ -318,7 +319,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);bo
   <div class="year">2026</div>
 </div>
 
-<!-- ===== СТАРТ (лише організатор; учні сюди не потрапляють) ===== -->
+<!-- ===== СТАРТ (лише організатор/ведучий; учень за посиланням сюди НЕ потрапляє) ===== -->
 <section class="screen" id="s-start">
   <div class="card">
     <h2>🧭 Веду коло</h2>
@@ -326,8 +327,8 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);bo
     <button class="btn" onclick="enterHost('')">🖥 Створити кімнату</button>
   </div>
   <div class="card">
-    <h2>🙋 Я учасник</h2>
-    <p class="lead">Введіть код, який показав ведучий.</p>
+    <h2> Увійти за кодом</h2>
+    <p class="lead">Якщо вам дали код без посилання — введіть його тут.</p>
     <div class="field"><label>Код кола</label>
       <input id="jroom" maxlength="6" placeholder="напр. KQ7M" style="text-transform:uppercase;letter-spacing:4px;font-weight:900"></div>
     <button class="btn gold" onclick="joinByCode()">Продовжити →</button>
@@ -343,6 +344,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);bo
   <div class="card invite">
     <svg class="art" viewBox="0 0 200 260" aria-hidden="true"><use href="#ic-lighthouse"/></svg>
     <h2>🌅 Вас запросили у коло «Точка опори»</h2>
+    <div class="roomtag" id="inviteRoom">----</div>
     <p class="sub">Ми разом складаємо правила безпечного спілкування. Ваш голос і ваша думка тут важливі — вони стають маяками для інших.</p>
 
     <div class="field" style="text-align:center">
@@ -360,7 +362,6 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);bo
       <input id="inviteName" maxlength="24" placeholder="Наприклад: Оксана"></div>
     <button class="btn gold go" onclick="doStudentConnect()">💛 Увійти в коло</button>
     <div class="hint">Натисніть «Увійти», коли будете готові. Відповідей «правильно/неправильно» тут немає.</div>
-    <div><button class="btn soft mini" onclick="showStart()">← інший код</button></div>
   </div>
 </section>
 
@@ -391,7 +392,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);bo
       <div class="rule r1"><h3>🌱 Підтримка після помилки</h3>
         <blockquote>«Коли хтось помиляється, ми…»</blockquote>
         <form onsubmit="submitAnswer(event,1)"><input id="in1" maxlength="180" placeholder="Продовжіть речення…">
-          <button classbtn class="btn sea mini" id="btn1" type="submit">Додати</button></form>
+          <button class="btn sea mini" id="btn1" type="submit">Додати</button></form>
         <div class="small" id="note1"></div></div>
       <div class="rule r2"><h3>🫂 Ресурс і допомога</h3>
         <blockquote>«Якщо людині потрібна допомога, ми…»</blockquote>
@@ -462,6 +463,16 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);bo
   </div>
 </section>
 
+<!-- ===== НЕВІРНЕ ПОСИЛАННЯ (захист учня від екрана ролі) ===== -->
+<section class="screen" id="s-badlink">
+  <div class="card center">
+    <div class="wait"><div class="big">🧭</div>
+      <div class="t">Посилання недійсне</div>
+      <p class="lead" style="margin-top:6px">Здається, код кола загубився. Попросіть ведучого надіслати посилання ще раз — воно має виглядати як …?role=student&room=КОД.</p>
+    </div>
+  </div>
+</section>
+
 </div>
 
 <div class="footer">
@@ -483,7 +494,7 @@ const PROMPTS=[
   {icon:'🫂',title:'Ресурс і допомога',text:'Якщо людині потрібна допомога, ми…',sym:'ic-hug',cls:'b2'}
 ];
 const NAMES=['Оксана','Ігор','Марія','Тарас','Анна','Дмитро','Софія','Андрій','Наталія','Віктор'];
-const MOODS=['🌅','☀️','⛅','','🌑'];
+const MOODS=['🌅','☀️','⛅','🌧','🌑'];
 const SAMPLE=[
   ['слухаємо одне одного до кінця.','шукаємо спільне рішення, а не правого.','говоримо про факти, а не про особу.','залишаємось поважними навіть у суперечці.','ставимо запитання, щоб зрозуміти іншого.'],
   ['підтримуємо, а не висміюємо.','допомагаємо виправити, а не звинувачуємо.','пам’ятаємо: помилка — частина навчання.','даємо м’який зворотний зв’язок.','не принижуємо через невдачу.'],
@@ -505,7 +516,7 @@ let botTimer=null, breathTimer=null, breathStart=0, breathDur=60000, studentStar
 let timerDur=0, timerStart=0, timerInt=null;
 const sid='u'+Math.random().toString(36).slice(2,8);
 const $=id=>document.getElementById(id);
-const base=()=>'opora-wall-v5/'+room;
+const base=()=>'opora-wall-v6/'+room;
 const rid=(n=6)=>Math.random().toString(36).slice(2,2+n).padEnd(n,'x');
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fmt=ts=>new Date(Number(ts)||Date.now()).toLocaleTimeString('uk-UA',{hour:'2-digit',minute:'2-digit'});
@@ -513,10 +524,13 @@ function genRoom(){const A='ABCDEFGHJKMNPQRSTUVWXYZ23456789';let r='';for(let i=
 
 function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);
   requestAnimationFrame(()=>t.classList.add('on'));setTimeout(()=>{t.classList.remove('on');setTimeout(()=>t.remove(),400);},2600);}
-function status(t){if(role==='member'&&$('mstatus'))$('mstatus').textContent=t;if(role==='host'&&$('hstatus'))$('hstatus').textContent=t;}
+/* FIX: індикатор учня тепер дивиться на role!=='host', а не на 'member' */
+function status(t){if(role!=='host'&&$('mstatus'))$('mstatus').textContent=t;if(role==='host'&&$('hstatus'))$('hstatus').textContent=t;}
 function step(t){$('navstep').textContent=t;}
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));$(id).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});}
-function showStart(){reset();step('вибір');show('s-start');}
+function setLeave(v){const b=$('navLeave');if(b)b.classList.toggle('hidden',!v);}
+function showStart(){reset();setLeave(false);step('вибір');show('s-start');}
+function showBadLink(){reset();setLeave(false);step('—');show('s-badlink');}
 
 function reset(){
   clearInterval(botTimer);botTimer=null;hideBreath();stopTimer();
@@ -533,7 +547,6 @@ function reset(){
   document.querySelectorAll('#moodPick .mood').forEach(m=>m.classList.remove('on'));
   for(let i=0;i<3;i++){$('in'+i).value='';$('in'+i).disabled=false;$('btn'+i).disabled=false;$('btn'+i).textContent='Додати';$('note'+i).textContent='';}
 }
-function leave(){reset();step('—');show('s-start');}
 
 /* ===== вибір настрою ===== */
 $('moodPick').addEventListener('click',e=>{const m=e.target.closest('.mood');if(!m)return;
@@ -562,15 +575,16 @@ function pub(t,o){if(!online||!connected||!client)return;try{client.publish(base
 
 /* ================= ВХОД ================= */
 function enterHost(r){reset();role='host';room=(r&&/^[A-Z0-9_-]{3,8}$/i.test(r))?r.toUpperCase():genRoom();
-  $('roomcode').textContent=room;step('ведучий • '+room);show('s-host');renderHost();
+  setLeave(true);$('roomcode').textContent=room;step('ведучий • '+room);show('s-host');renderHost();
   connect(()=>renderJoined());}
 function enterDemo(){reset();role='host';room='DEMO';isDemo=true;online=false;joined={demo:{name:'Демо‑коло',mood:'☀️'}};
-  $('roomcode').textContent='ДЕМО';step('демо');show('s-host');
+  setLeave(true);$('roomcode').textContent='ДЕМО';step('демо');show('s-host');
   $('linkRow').classList.add('hidden');$('demoBanner').classList.remove('hidden');status('🎬 демо');renderHost();renderJoined();}
 function joinByCode(){const r=$('jroom').value.trim().toUpperCase();
   if(!/^[A-Z0-9_-]{3,8}$/.test(r)){alert('Введіть код з екрана ведучого.');return;}enterStudent(r);}
 function enterStudent(r){reset();role='student';room=r;name=localStorage.getItem('op_name')||'';studentMood=localStorage.getItem('op_mood')||'';
-  $('mroom').textContent=r;$('inviteName').value=name;
+  setLeave(false);/* учень НИКОЛИ не бачить s-start */
+  $('mroom').textContent=r;$('inviteRoom').textContent=r;$('inviteName').value=name;
   if(studentMood){const el=document.querySelector('#moodPick .mood[data-m="'+studentMood+'"]');if(el)el.classList.add('on');}
   step('учень • '+r);show('s-invite');setTimeout(()=>$('inviteName').focus(),200);}
 function doStudentConnect(){name=($('inviteName').value||'').trim()||'Учасник';localStorage.setItem('op_name',name);localStorage.setItem('op_mood',studentMood);
@@ -581,7 +595,9 @@ function doStudentConnect(){name=($('inviteName').value||'').trim()||'Учасн
 function onMsg(topic,payload){if(!topic.startsWith(base()+'/'))return;let m;try{m=JSON.parse(payload.toString());}catch(e){return;}
   const s=topic.slice(base().length+1);
   if(s==='a')evAnswer(m);else if(s==='v')evVote(m);else if(s==='m')evMod(m);
-  else if(s==='j'&&role==='host')evJoin(m);else if(s==='c'&&role==='member')evCtrl(m);}
+  else if(s==='j'&&role==='host')evJoin(m);
+  /* FIX: команди ведучого обробляє будь-хто, хто не host (раніше помилково лише 'member') */
+  else if(s==='c'&&role!=='host')evCtrl(m);}
 function evJoin(m){joined[m.sid]={name:m.name||'Учасник',mood:m.mood||''};renderJoined();toast('🙋 '+(joined[m.sid].name)+' у колі');if(launched)setTimeout(()=>sendSnap(m.sid),450);}
 function evAnswer(m){if(!m||!m.eid||processed.has(m.eid)||!launched||ended)return;processed.add(m.eid);
   const pi=+m.pi;if(![0,1,2].includes(pi))return;const text=String(m.text||'').trim().slice(0,180);if(!text)return;
@@ -693,7 +709,8 @@ function renderJoined(){if(role!=='host')return;const a=Object.values(joined);$(
   const cnt={};a.forEach(u=>{if(u.mood)cnt[u.mood]=(cnt[u.mood]||0)+1;});
   const keys=MOODS.filter(k=>cnt[k]);
   $('weatherBox').innerHTML=keys.length?keys.map(k=>'<span class="wchip">'+k+' <b>×'+cnt[k]+'</b></span>').join(''):'<span class="lead">Учасники ще не обрали настрій.</span>';}
-function renderMember(){if(role!=='member')return;
+/* FIX: renderMember тепер не залежить від слова 'member' — просто «не host» */
+function renderMember(){if(role==='host')return;
   if(!launched){$('swait').classList.remove('hidden');$('sforms').classList.add('hidden');$('sboardcard').classList.add('hidden');return;}
   $('swait').classList.add('hidden');$('sforms').classList.remove('hidden');$('sboardcard').classList.remove('hidden');
   for(let pi=0;pi<3;pi++){const inp=$('in'+pi),btn=$('btn'+pi),nt=$('note'+pi),done=submitted.has(pi);
@@ -701,9 +718,10 @@ function renderMember(){if(role!=='member')return;
     nt.textContent=done?'Вашу думку збережено.':(ended?'Коло завершено. Дякуємо!':'');}}
 function cmp(a,b){if(!!b.pinned!==!!a.pinned)return b.pinned-a.pinned;const va=a.voters.size,vb=b.voters.size;if(vb!==va)return vb-va;
   const aa=+a.applause||0,ab=+b.applause||0;if(ab!==aa)return ab-aa;return a.ts-b.ts;}
+/* FIX: дошка учня рендериться для role!=='host' */
 function renderBoards(){const vis=[...answers.values()].filter(a=>!a.hidden).length;
   if(role==='host')$('htotal').textContent=vis;
-  if(role==='host')renderBoard($('hboard'),'host');if(role==='member')renderBoard($('mboard'),'member');}
+  if(role==='host')renderBoard($('hboard'),'host');if(role!=='host')renderBoard($('mboard'),'member');}
 function renderBoard(box,mode){if(!box)return;box.innerHTML='';
   PROMPTS.forEach((p,pi)=>{const col=document.createElement('section');col.className='bed';
     col.innerHTML='<div class="bed-head '+p.cls+'"><svg class="sym" viewBox="0 0 100 100" aria-hidden="true"><use href="#'+p.sym+'"/></svg>'+
@@ -749,9 +767,11 @@ $('mboard').addEventListener('click',boardClick);
 (function init(){
   const p=new URLSearchParams(location.search),r=p.get('room'),ro=p.get('role');
   const ok=r&&/^[A-Z0-9_-]{3,8}$/i.test(r);
-  if(ro==='student'&&ok)enterStudent(r.toUpperCase());
-  else if(ro==='host')enterHost(ok?r.toUpperCase():'');
-  else{step('вибір');show('s-start');}
+  /* Учень за посиланням йде ОДРАЗУ на лендінг; при битому коді — на сторінку-помилку,
+     але НИКОЛИ на s-start з «Веду коло». */
+  if(ro==='student'){ if(ok) enterStudent(r.toUpperCase()); else showBadLink(); }
+  else if(ro==='host'){ enterHost(ok?r.toUpperCase():''); }
+  else { showStart(); }
 })();
 </script>
 </body>
