@@ -37,7 +37,6 @@ background-attachment:fixed;
 }
 .wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:16px 16px 90px}
 @media(min-width:1500px){.wrap{max-width:1260px}}
-/* ===== НАВІГАЦІЯ ===== */
 .nav{position:sticky;top:10px;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:10px;
 background:rgba(255,253,248,.86);backdrop-filter:blur(14px);
 border:1px solid rgba(217,164,65,.30);border-radius:18px;padding:10px 16px;box-shadow:var(--shadow-soft)}
@@ -48,7 +47,6 @@ background:var(--navy);color:#fff;box-shadow:0 4px 0 var(--navy-deep);transition
 .navtitle{font-weight:900;font-size:15px;display:flex;align-items:center;gap:8px;letter-spacing:.3px}
 .navtitle .lc{color:var(--gold-deep)}
 .navstep{font-size:12px;color:var(--muted);font-weight:800;text-align:right;max-width:42%}
-/* ===== ГЕРОЙ = ТИТУЛЬНИК З АНІМОВАНИМ МАЯКОМ ===== */
 .hero{position:relative;overflow:hidden;border-radius:30px;margin-top:16px;
 box-shadow:0 26px 60px rgba(14,44,77,.30);
 background:linear-gradient(180deg,#fdf6ea 0%, #fbe7cf 38%, #f3c79a 60%, #2c5a82 82%, #143a5e 100%);
@@ -75,7 +73,6 @@ box-shadow:0 8px 20px rgba(14,44,77,.10)}
 .hero .year{position:absolute;left:26px;bottom:14px;z-index:2;font-weight:800;color:#fff;opacity:.85;font-size:13px;
 display:flex;align-items:center;gap:8px}
 .hero .year::before,.hero .year::after{content:"";width:26px;height:2px;background:var(--gold)}
-/* анімації сцени */
 .wv1{animation:wshift 8s ease-in-out infinite alternate}
 .wv2{animation:wshift 11s ease-in-out infinite alternate-reverse}
 @keyframes wshift{to{transform:translateX(-70px)}}
@@ -84,10 +81,7 @@ display:flex;align-items:center;gap:8px}
 .birds{animation:flyby 38s linear infinite}
 .birds.b2{animation-duration:47s;animation-delay:-20s}
 @keyframes flyby{from{transform:translate(-160px,0)}to{transform:translate(1160px,-36px)}}
-@media (prefers-reduced-motion:reduce){
-.wv1,.wv2,.clouds,.birds,.beam,.confetti{animation:none!important}
-}
-/* ===== ЕКРАНИ ===== */
+@media (prefers-reduced-motion:reduce){.wv1,.wv2,.clouds,.birds,.beam,.confetti,.cword,.mosaic-tile{animation:none!important}}
 .screen{display:none;animation:rise .45s cubic-bezier(.2,.7,.2,1)}
 .screen.show{display:block}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -126,7 +120,6 @@ padding:8px 16px;font-weight:800;font-size:14px;margin-top:10px;box-shadow:inset
 .wait .t{font-size:18px;font-weight:800;color:var(--ink2);margin-top:8px}
 .chip{background:#f1ead8;border-radius:999px;padding:6px 13px;font-weight:800;font-size:14px;display:inline-block;margin:3px;color:var(--navy)}
 .chip.sm{font-size:12px;padding:4px 10px}
-/* ===== ВИБІР АКТИВНОСТІ (5 режимів у порядку сценарію) ===== */
 .modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
 .modecard{position:relative;cursor:pointer;text-align:left;border:2px solid rgba(217,164,65,.3);background:linear-gradient(180deg,#fff,#fbf7ee);
 border-radius:18px;padding:14px;transition:.15s;font-family:inherit}
@@ -138,7 +131,6 @@ font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:c
 .modecard:hover{transform:translateY(-2px);border-color:var(--gold)}
 .modecard.on{border-color:var(--gold);background:#fff7e6;box-shadow:0 0 0 3px rgba(217,164,65,.2)}
 .modecard.on .mn{background:var(--gold-deep)}
-/* ===== ПОГОДА ВСЕРЕДИНІ ===== */
 .moodgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
 .moodbig{cursor:pointer;border:2px solid rgba(217,164,65,.3);background:linear-gradient(180deg,#fff,#fbf7ee);
 border-radius:18px;padding:16px 12px;text-align:center;transition:.15s;font-family:inherit}
@@ -158,7 +150,6 @@ border-radius:18px;padding:16px 12px;text-align:center;transition:.15s;font-fami
 .wtrack{height:12px;border-radius:999px;background:#f1ead8;margin-top:8px;overflow:hidden}
 .wfill{height:100%;border-radius:999px;transition:width .6s cubic-bezier(.2,.7,.2,1)}
 .wnames{margin-top:8px}
-/* ===== РЕФЛЕКСІЯ: ТРИ СИМВОЛІЧНІ ПРЕДМЕТИ ===== */
 .symgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
 @media(max-width:760px){.symgrid{grid-template-columns:1fr}}
 .symcard{cursor:pointer;border:2px solid rgba(217,164,65,.3);border-radius:18px;padding:16px;text-align:center;
@@ -169,9 +160,10 @@ background:linear-gradient(180deg,#fff,#fbf7ee);transition:.15s;font-family:inhe
 .symcard:hover{transform:translateY(-2px);border-color:var(--gold)}
 .symcard.on{border-color:var(--gold);background:#fff7e6;box-shadow:0 0 0 3px rgba(217,164,65,.2)}
 .symcard:disabled{opacity:.55;cursor:not-allowed;transform:none}
-/* ===== ДОШКИ ===== */
 .board-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
 .board-grid.single{grid-template-columns:1fr}
+.board-grid.cloudmode{display:block}
+.board-grid.mosaicmode{display:block}
 @media(max-width:920px){.board-grid{grid-template-columns:1fr}}
 .bed{border:1px solid rgba(217,164,65,.25);border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#fff,#fbf7ee);
 box-shadow:var(--shadow-soft);display:flex;flex-direction:column;position:relative}
@@ -217,6 +209,43 @@ display:inline-flex;align-items:center;gap:5px;line-height:1.1}
 .modbtn.del:hover{background:#f6dcd7}
 .empty{padding:20px 14px;text-align:center;color:var(--muted);font-weight:800;font-size:14px;
 border:2px dashed rgba(217,164,65,.4);border-radius:16px;background:#fff}
+.cloudwrap{position:relative;margin-top:14px;background:#fff;border:1px solid rgba(217,164,65,.25);border-radius:22px;box-shadow:var(--shadow-soft);overflow:hidden}
+.cloud{position:relative;width:100%;min-height:300px;background:
+radial-gradient(620px 300px at 18% 8%,rgba(217,164,65,.07),transparent 60%),
+radial-gradient(520px 280px at 86% 92%,rgba(79,134,168,.08),transparent 60%),#fff}
+.cword{position:absolute;background:none;border:none;padding:0;margin:0;cursor:pointer;font-family:inherit;font-weight:900;
+line-height:1.06;text-align:center;transition:transform .16s,filter .16s;animation:cloudin .5s cubic-bezier(.2,.8,.2,1) backwards;transform-origin:center}
+.cword:hover{transform:scale(1.07);filter:brightness(1.1);z-index:5}
+.cword.pinned{text-shadow:0 0 16px rgba(217,164,65,.6)}
+.cword.dim{opacity:.35;filter:grayscale(.7)}
+.cw-pin{position:absolute;top:-15px;right:-6px;font-size:14px}
+.cw-v{position:absolute;bottom:-15px;right:-4px;font-size:11px;font-weight:900;color:#a85a16;background:#fdeede;border-radius:999px;padding:2px 7px;box-shadow:0 2px 6px rgba(14,44,77,.12)}
+.cloudhint{padding:10px 16px;border-top:1px dashed rgba(217,164,65,.35);font-size:12.5px;font-weight:800;color:var(--muted);text-align:center;background:#fffdf8}
+.cloudpop{position:fixed;z-index:500;background:#fff;border:2px solid var(--gold);border-radius:16px;box-shadow:0 18px 44px rgba(14,44,77,.25);padding:14px;animation:pop .2s ease}
+.cp-text{font-weight:900;font-size:15px;color:var(--navy);margin-bottom:6px;word-break:break-word}
+.cp-meta{font-size:12px;font-weight:800;color:var(--muted);margin-bottom:10px}
+.cp-acts{display:flex;flex-wrap:wrap;gap:6px}
+@keyframes cloudin{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+
+/* === МОЗАЇКА ДЛЯ "Я МАЮ ПРАВО" === */
+.mosaic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;padding:16px;align-items:stretch}
+.mosaic-tile{border-radius:20px;padding:20px;color:#fff;font-weight:700;font-size:15px;line-height:1.45;box-shadow:0 8px 20px rgba(14,44,77,.12);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;display:flex;flex-direction:column;justify-content:space-between;min-height:120px;animation:pop .4s cubic-bezier(.2,.8,.2,1) backwards;position:relative;overflow:hidden}
+.mosaic-tile::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18) 0%,transparent 60%);pointer-events:none;border-radius:20px}
+.mosaic-tile:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 16px 32px rgba(14,44,77,.20);z-index:2}
+.mosaic-tile .mt-text{flex:1;margin-bottom:16px;word-break:break-word;font-style:italic;text-shadow:0 1px 2px rgba(0,0,0,.15)}
+.mosaic-tile .mt-footer{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;font-weight:800;opacity:.95;gap:8px}
+.mosaic-tile .mt-votes{background:rgba(255,255,255,.25);padding:6px 14px;border-radius:99px;cursor:pointer;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:5px;border:none;font-family:inherit;font-weight:800;font-size:12.5px;color:#fff}
+.mosaic-tile .mt-votes:hover{background:rgba(255,255,255,.45);transform:scale(1.06)}
+.mosaic-tile .mt-votes.on{background:#fff;color:#0e2c4d}
+.mosaic-tile.pinned{border:3px solid #fff;box-shadow:0 0 0 3px rgba(255,255,255,.5),0 16px 36px rgba(14,44,77,.28);z-index:3}
+.mosaic-tile .mt-acts{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.25);padding-top:10px}
+.mosaic-tile .mt-acts .modbtn{background:rgba(255,255,255,.2);color:#fff;border:none;font-size:12px;padding:6px 10px;border-radius:10px;cursor:pointer;font-weight:800;transition:background .15s,transform .15s;font-family:inherit}
+.mosaic-tile .mt-acts .modbtn:hover{background:rgba(255,255,255,.4);transform:translateY(-1px)}
+
+.emojibar{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:8px;flex-basis:100%}
+.emojibar .el{font-size:11px;font-weight:800;color:var(--muted);margin-right:2px}
+.emojibtn{border:1px solid rgba(217,164,65,.35);background:#fff;border-radius:10px;font-size:17px;line-height:1;padding:6px 7px;cursor:pointer;transition:.12s}
+.emojibtn:hover{transform:translateY(-2px) scale(1.08);border-color:var(--gold);background:#fff7e6}
 .rules{display:grid;gap:12px;margin-top:12px}
 .rule{border:2px solid rgba(217,164,65,.3);border-radius:20px;padding:16px;background:linear-gradient(180deg,#fff,#fbf7ee)}
 .rule h3{font-size:15px;display:flex;align-items:center;gap:8px}
@@ -263,12 +292,11 @@ padding:12px 16px;font-weight:800;color:#8a5a10;margin-top:14px;display:flex;gap
 border-radius:20px;padding:18px 22px;box-shadow:var(--shadow-soft);font-style:italic;color:var(--navy2)}
 .footer .beam-i{font-style:normal}
 .hidden{display:none!important}
-/* ===== СТИЛІ ДЛЯ PRINT/PDF ===== */
 #printSheet{display:none}
 @media print{
 @page{size:A4 portrait;margin:16mm 14mm}
 body{background:#fff!important;overflow:visible}
-.wrap,.nav,.hero,.screen,.footer,#breathOverlay,.toast,.confetti{display:none!important}
+.wrap,.nav,.hero,.screen,.footer,#breathOverlay,.toast,.confetti,.cloudpop{display:none!important}
 #printSheet{display:block!important;position:static;width:100%;background:#fff;color:#0e2c4d;font-family:"Montserrat","Segoe UI",Arial,sans-serif;line-height:1.5}
 .ps-header{background:#0e2c4d;color:#fff;padding:24px 28px;border-radius:12px;margin-bottom:22px;position:relative;overflow:hidden}
 .ps-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:#d9a441}
@@ -306,7 +334,6 @@ body{background:#fff!important;overflow:visible}
 </style>
 </head>
 <body>
-<!-- SVG-символи -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
 <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8bd5e"/><stop offset="1" stop-color="#b8842a"/></linearGradient>
@@ -377,215 +404,139 @@ body{background:#fff!important;overflow:visible}
 <span class="navtitle"><span class="lc">🌅</span> Точка опори</span>
 <span class="navstep" id="navstep">—</span>
 </div>
-<!-- ГЕРОЙ З АНІМОВАНИМ МАЯКОМ -->
 <div class="hero">
 <svg class="sky" viewBox="0 0 1000 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-<circle cx="830" cy="66" r="92" fill="url(#gLamp)" opacity=".6">
-<animate attributeName="opacity" values=".45;.75;.45" dur="6s" repeatCount="indefinite"/>
-</circle>
-<circle cx="830" cy="66" r="44" fill="url(#gSun)">
-<animate attributeName="r" values="42;47;42" dur="6s" repeatCount="indefinite"/>
-</circle>
+<circle cx="830" cy="66" r="92" fill="url(#gLamp)" opacity=".6"><animate attributeName="opacity" values=".45;.75;.45" dur="6s" repeatCount="indefinite"/></circle>
+<circle cx="830" cy="66" r="44" fill="url(#gSun)"><animate attributeName="r" values="42;47;42" dur="6s" repeatCount="indefinite"/></circle>
 <g class="clouds" fill="#fffdf8" opacity=".55">
 <ellipse cx="240" cy="60" rx="70" ry="14"/><ellipse cx="300" cy="72" rx="52" ry="11"/>
 <ellipse cx="620" cy="40" rx="58" ry="12"/><ellipse cx="672" cy="52" rx="40" ry="9"/>
 </g>
 <g class="birds" stroke="#0e2c4d" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7">
-<path d="M0 96 q7 -8 14 0 q7 -8 14 0"/>
-<path d="M40 118 q6 -7 12 0 q6 -7 12 0"/>
-<path d="M18 140 q5 -6 10 0 q5 -6 10 0"/>
+<path d="M0 96 q7 -8 14 0 q7 -8 14 0"/><path d="M40 118 q6 -7 12 0 q6 -7 12 0"/><path d="M18 140 q5 -6 10 0 q5 -6 10 0"/>
 </g>
 <g class="birds b2" stroke="#143a5e" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".5">
-<path d="M0 60 q6 -7 12 0 q6 -7 12 0"/>
-<path d="M34 80 q5 -6 10 0 q5 -6 10 0"/>
+<path d="M0 60 q6 -7 12 0 q6 -7 12 0"/><path d="M34 80 q5 -6 10 0 q5 -6 10 0"/>
 </g>
 <g color="#d9a441" opacity=".85"><use href="#ic-heartline" x="40" y="212" width="56" height="56"/></g>
 <g class="wv1" color="#4f86a8"><use href="#ic-waves" x="-100" y="228" width="1250" height="95"/></g>
 <g class="wv2" color="#0e2c4d"><use href="#ic-waves" x="-140" y="252" width="1300" height="80"/></g>
 </svg>
 <svg class="lhscene" viewBox="0 0 360 380" aria-hidden="true">
-<g opacity=".6">
-<animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 180 95" to="360 180 95" dur="10s" repeatCount="indefinite"/>
-<polygon points="180,95 540,50 540,140" fill="url(#gBeamR)"/>
-<polygon points="180,95 -180,50 -180,140" fill="url(#gBeamL)"/>
-</g>
+<g opacity=".6"><animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 180 95" to="360 180 95" dur="10s" repeatCount="indefinite"/>
+<polygon points="180,95 540,50 540,140" fill="url(#gBeamR)"/><polygon points="180,95 -180,50 -180,140" fill="url(#gBeamL)"/></g>
 <path d="M14 380 L58 302 L108 322 L150 282 L212 302 L262 262 L318 302 L360 380 Z" fill="url(#gNavy)"/>
 <path d="M58 302 L108 322 L150 282 L212 302 L262 262 L318 302" fill="none" stroke="#d9a441" stroke-width="3" opacity=".55"/>
 <path d="M120 340 l30 -18 26 16 -20 22 z" fill="#143a5e" opacity=".8"/>
 <path d="M230 330 l28 -16 24 18 -18 20 z" fill="#143a5e" opacity=".7"/>
 <rect x="148" y="266" width="64" height="14" rx="3" fill="#0a2038"/>
 <path d="M160 268 L166 120 L194 120 L200 268 Z" fill="url(#gTower)"/>
-<g clip-path="url(#towerClip)">
-<rect x="156" y="146" width="48" height="16" fill="#143a5e"/>
-<rect x="156" y="196" width="48" height="16" fill="#143a5e"/>
-</g>
-<rect x="174" y="168" width="12" height="16" rx="2" fill="#e8bd5e">
-<animate attributeName="opacity" values=".75;1;.75" dur="4s" repeatCount="indefinite"/>
-</rect>
+<g clip-path="url(#towerClip)"><rect x="156" y="146" width="48" height="16" fill="#143a5e"/><rect x="156" y="196" width="48" height="16" fill="#143a5e"/></g>
+<rect x="174" y="168" width="12" height="16" rx="2" fill="#e8bd5e"><animate attributeName="opacity" values=".75;1;.75" dur="4s" repeatCount="indefinite"/></rect>
 <path d="M172 268 v-22 a8 8 0 0 1 16 0 v22 z" fill="#0a2038"/>
 <rect x="156" y="108" width="48" height="12" rx="3" fill="#0a2038"/>
-<g stroke="#0a2038" stroke-width="2.5">
-<line x1="160" y1="96" x2="160" y2="108"/><line x1="170" y1="96" x2="170" y2="108"/>
-<line x1="180" y1="96" x2="180" y2="108"/><line x1="190" y1="96" x2="190" y2="108"/>
-<line x1="200" y1="96" x2="200" y2="108"/><line x1="156" y1="96" x2="204" y2="96"/>
-</g>
+<g stroke="#0a2038" stroke-width="2.5"><line x1="160" y1="96" x2="160" y2="108"/><line x1="170" y1="96" x2="170" y2="108"/><line x1="180" y1="96" x2="180" y2="108"/><line x1="190" y1="96" x2="190" y2="108"/><line x1="200" y1="96" x2="200" y2="108"/><line x1="156" y1="96" x2="204" y2="96"/></g>
 <rect x="166" y="80" width="28" height="28" rx="3" fill="#fff8e6" stroke="#0a2038" stroke-width="2.5"/>
-<circle cx="180" cy="95" r="26" fill="url(#gLamp)">
-<animate attributeName="opacity" values=".55;1;.55" dur="3s" repeatCount="indefinite"/>
-</circle>
-<circle cx="180" cy="95" r="7" fill="#d9a441">
-<animate attributeName="r" values="6;9;6" dur="3s" repeatCount="indefinite"/>
-</circle>
+<circle cx="180" cy="95" r="26" fill="url(#gLamp)"><animate attributeName="opacity" values=".55;1;.55" dur="3s" repeatCount="indefinite"/></circle>
+<circle cx="180" cy="95" r="7" fill="#d9a441"><animate attributeName="r" values="6;9;6" dur="3s" repeatCount="indefinite"/></circle>
 <path d="M162 80 L180 60 L198 80 Z" fill="#0a2038"/>
-<line x1="180" y1="60" x2="180" y2="50" stroke="#0a2038" stroke-width="3"/>
-<circle cx="180" cy="47" r="4" fill="#d9a441"/>
+<line x1="180" y1="60" x2="180" y2="50" stroke="#0a2038" stroke-width="3"/><circle cx="180" cy="47" r="4" fill="#d9a441"/>
 </svg>
 <div class="inner">
 <div class="org">Костянтинівський ЗЗСО I–III ступенів №16</div>
-<h1><span class="l1">Точка</span><span class="l2">
-<svg class="compass" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-compass"/></svg>опори</span></h1>
+<h1><span class="l1">Точка</span><span class="l2"><svg class="compass" viewBox="0 0 100 100" aria-hidden="true"><use href="#ic-compass"/></svg>опори</span></h1>
 <div class="stroke">Від ресурсу вчителя до безпеки дитини</div>
 <p class="blogline">Інтерактивна педагогічна онлайн-вітальня. Емоційна стійкість та етика взаємин: ресурс учителя й безпека дитини.</p>
 </div>
 <div class="year">2026</div>
 </div>
-<!-- СТАРТ -->
 <section class="screen" id="s-start">
-<div class="card">
-<h2>🧭 Веду коло</h2>
-<p class="lead">Створити кімнату, відкривати активності та бачити думки наживо.</p>
-<button class="btn" onclick="enterHost('')">🖥 Створити кімнату</button>
-</div>
-<div class="card">
-<h2>🙋 Увійти за кодом</h2>
-<p class="lead">Якщо вам дали код без посилання — введіть його тут.</p>
-<div class="field"><label>Код кола</label>
-<input id="jroom" maxlength="6" placeholder="напр. KQ7M" style="text-transform:uppercase;letter-spacing:4px;font-weight:900"></div>
-<button class="btn gold" onclick="joinByCode()">Продовжити →</button>
-</div>
-<div class="card center" style="background:linear-gradient(180deg,#fff,#fbf7ee)">
-<p class="lead">Хочете спершу побачити, як це виглядає?</p>
-<button class="btn soft mini" onclick="enterDemo()">🎬 Переглянути демо</button>
-</div>
+<div class="card"><h2>🧭 Веду коло</h2><p class="lead">Створити кімнату, відкривати активності та бачити думки наживо.</p>
+<button class="btn" onclick="enterHost('')">🖥 Створити кімнату</button></div>
+<div class="card"><h2>🙋 Увійти за кодом</h2><p class="lead">Якщо вам дали код без посилання — введіть його тут.</p>
+<div class="field"><label>Код кола</label><input id="jroom" maxlength="6" placeholder="напр. KQ7M" style="text-transform:uppercase;letter-spacing:4px;font-weight:900"></div>
+<button class="btn gold" onclick="joinByCode()">Продовжити →</button></div>
+<div class="card center" style="background:linear-gradient(180deg,#fff,#fbf7ee)"><p class="lead">Хочете спершу побачити, як це виглядає?</p>
+<button class="btn soft mini" onclick="enterDemo()">🎬 Переглянути демо</button></div>
 </section>
-<!-- ЛЕНДІНГ УЧАСНИКА -->
 <section class="screen" id="s-invite">
 <div class="card invite">
 <svg class="art" viewBox="0 0 200 240" aria-hidden="true"><use href="#ic-crest"/></svg>
 <h2>🌅 Вас запросили у коло «Точка опори»</h2>
 <div class="roomtag" id="inviteRoom">----</div>
 <p class="sub">Ми разом будуємо простір підтримки. Ваш голос і ваша думка тут важливі.</p>
-<div class="namebox field"><label>Ваше ім’я або нік</label>
-<input id="inviteName" maxlength="24" placeholder="Наприклад: Оксана"></div>
+<div class="namebox field"><label>Ваше ім’я або нік</label><input id="inviteName" maxlength="24" placeholder="Наприклад: Оксана"></div>
 <button class="btn gold go" onclick="doStudentConnect()">💛 Увійти в коло</button>
 <div class="hint">Активності відкриває ведучий — дочекайтеся сигналу маяка.<br>Своїм станом ви поділитеся у першій вправі «Погода всередині».</div>
 </div>
 </section>
-<!-- УЧАСНИК -->
 <section class="screen" id="s-member">
 <div class="card center">
 <span class="livebadge"><span class="beam"></span><span id="mstatus">з’єднання…</span> • коло <b id="mroom">----</b></span>
 <div class="timerbox hidden" id="mTimerBox"><span class="timer" id="mTimer">--:--</span></div>
 </div>
-<div class="card" id="swait">
-<div class="wait"><div class="big">🌊</div>
+<div class="card" id="swait"><div class="wait"><div class="big">🌊</div>
 <div class="t">Чекаємо, коли ведучий відкриє активність…</div>
-<p class="lead" style="margin-top:6px">Зробіть м’який вдих і видих.</p></div>
-</div>
-<!-- АКТИВНІСТЬ 1: ПОГОДА ВСЕРЕДИНІ -->
+<p class="lead" style="margin-top:6px">Зробіть м’який вдих і видих.</p></div></div>
 <div class="card hidden" id="sformsWeather">
 <h2>🌤️ Яка сьогодні погода всередині вас?</h2>
 <p class="lead">Оберіть стан, який найбільше відповідає вашому самопочуттю зараз. Вибір можна змінити, доки коло відкрите.</p>
-<div class="moodgrid" id="moodBigGrid"></div>
-<div class="small" id="weatherNote"></div>
+<div class="moodgrid" id="moodBigGrid"></div><div class="small" id="weatherNote"></div>
 </div>
-<!-- АКТИВНІСТЬ 2: ЗАВЕРШИ РЕЧЕННЯ -->
 <div class="card hidden" id="sformsRest">
 <h2>✍️ Завершіть речення</h2>
-<div class="rule r1" style="margin-top:12px">
-<blockquote>«Я маю право відпочивати, навіть якщо…»</blockquote>
-<form onsubmit="submitRest(event)">
-<textarea id="restInput" rows="3" maxlength="180" placeholder="Продовжіть речення своїми словами…" style="resize:none"></textarea>
-<button class="btn sea mini" id="restBtn" type="submit" style="width:100%;margin-top:8px">Надіслати 💛</button>
-</form>
-<div class="small" id="restNote"></div>
+<div class="rule r1" style="margin-top:12px"><blockquote>«Я маю право відпочивати, навіть якщо…»</blockquote>
+<form onsubmit="submitRest(event)"><textarea id="restInput" rows="3" maxlength="180" placeholder="Продовжіть речення своїми словами…" style="resize:none"></textarea>
+<button class="btn sea mini" id="restBtn" type="submit" style="width:100%;margin-top:8px">Надіслати 💛</button></form>
+<div class="small" id="restNote"></div></div>
 </div>
-</div>
-<!-- АКТИВНІСТЬ 3: ПРАВИЛА -->
 <div class="card hidden" id="sformsRules">
-<h2>✍️ Продовжіть правила-маяки</h2>
-<p class="lead">Додайте своє закінчення до кожного правила.</p>
+<h2>🌊 Продовжіть правила-маяки</h2><p class="lead">Додайте своє закінчення до кожного правила.</p>
 <div class="rules">
-<div class="rule r0"><h3>🤝 Повага в розбіжностях</h3>
-<blockquote>«Ми можемо не погоджуватися, але…»</blockquote>
-<form onsubmit="submitAnswer(event,0)"><input id="in0" maxlength="180" placeholder="Продовжіть речення…">
-<button class="btn sea mini" id="btn0" type="submit">Додати</button></form>
-<div class="small" id="note0"></div></div>
-<div class="rule r1"><h3>🌱 Підтримка після помилки</h3>
-<blockquote>«Коли хтось помиляється, ми…»</blockquote>
-<form onsubmit="submitAnswer(event,1)"><input id="in1" maxlength="180" placeholder="Продовжіть речення…">
-<button class="btn sea mini" id="btn1" type="submit">Додати</button></form>
-<div class="small" id="note1"></div></div>
-<div class="rule r2"><h3>🫂 Ресурс і допомога</h3>
-<blockquote>«Якщо людині потрібна допомога, ми…»</blockquote>
-<form onsubmit="submitAnswer(event,2)"><input id="in2" maxlength="180" placeholder="Продовжіть речення…">
-<button class="btn sunset mini" id="btn2" type="submit">Додати</button></form>
-<div class="small" id="note2"></div></div>
+<div class="rule r0"><h3>🤝 Повага в розбіжностях</h3><blockquote>«Ми можемо не погоджуватися, але…»</blockquote>
+<form onsubmit="submitAnswer(event,0)"><input id="in0" maxlength="180" placeholder="Продовжіть речення…"><button class="btn sea mini" id="btn0" type="submit">Додати</button></form><div class="small" id="note0"></div></div>
+<div class="rule r1"><h3>🌱 Підтримка після помилки</h3><blockquote>«Коли хтось помиляється, ми…»</blockquote>
+<form onsubmit="submitAnswer(event,1)"><input id="in1" maxlength="180" placeholder="Продовжіть речення…"><button class="btn sea mini" id="btn1" type="submit">Додати</button></form><div class="small" id="note1"></div></div>
+<div class="rule r2"><h3>🫂 Ресурс і допомога</h3><blockquote>«Якщо людині потрібна допомога, ми…»</blockquote>
+<form onsubmit="submitAnswer(event,2)"><input id="in2" maxlength="180" placeholder="Продовжіть речення…"><button class="btn sunset mini" id="btn2" type="submit">Додати</button></form><div class="small" id="note2"></div></div>
 </div>
 </div>
-<!-- АКТИВНІСТЬ 4: ПОДАРУЙ СЛОВО -->
 <div class="card hidden" id="sformsGift">
 <h2>💛 Подаруйте слово</h2>
-<p class="lead">Напишіть одну коротку фразу, яку ви хотіли б сьогодні подарувати колезі. Не конкретній людині, а будь-кому з нас, хто саме зараз потребує доброго слова.</p>
+<p class="lead">Напишіть тепле слово або коротку фразу для колеги — вона з’явиться у спільній <b>хмарі слів</b> на одній дошці. За бажанням додайте смайлик.</p>
 <div class="rule r0" style="margin-top:16px">
 <form onsubmit="submitGiftWord(event)">
-<textarea id="giftInput" rows="3" maxlength="140" placeholder="Наприклад: 'Ти справляєшся краще, ніж думаєш'..." style="resize:none"></textarea>
+<textarea id="giftInput" rows="3" maxlength="140" placeholder="Наприклад: Ти справляєшся краще, ніж думаєш 💛" style="resize:none"></textarea>
 <button class="btn gold mini" id="giftBtn" type="submit" style="width:100%;margin-top:8px">Надіслати тепло 💛</button>
-</form>
-<div class="small" id="giftNote"></div>
+</form><div class="small" id="giftNote"></div></div>
 </div>
-</div>
-<!-- АКТИВНІСТЬ 5: РЕФЛЕКСІЯ -->
 <div class="card hidden" id="sformsSymbols">
-<h2>🕯️ Рефлексія</h2>
+<h2>🪞 Рефлексія</h2>
 <p class="lead">Оберіть <b>один</b> із трьох символічних предметів і, якщо маєте бажання, завершіть відповідне речення.</p>
 <div class="symgrid" id="symGrid"></div>
-<div class="field hidden" id="symField">
-<label id="symPrompt">Ваша думка</label>
-<form onsubmit="submitSymbol(event)">
-<textarea id="symInput" rows="3" maxlength="180" placeholder="Можна залишити порожнім — вибір предмета вже важливий…" style="resize:none"></textarea>
-<button class="btn gold mini" id="symBtn" type="submit" style="width:100%;margin-top:8px">Поділитися ✨</button>
-</form>
-</div>
+<div class="field hidden" id="symField"><label id="symPrompt">Ваша думка</label>
+<form onsubmit="submitSymbol(event)"><textarea id="symInput" rows="3" maxlength="180" placeholder="Можна залишити порожнім — вибір предмета вже важливий…" style="resize:none"></textarea>
+<button class="btn gold mini" id="symBtn" type="submit" style="width:100%;margin-top:8px">Поділитися ✨</button></form></div>
 <div class="small" id="symNote"></div>
-<div class="banner">🎙️ Час на відповіді — 1–2 хвилини. Ведучий запросить двох-трьох охочих висловитися голосом.</div>
 </div>
-<!-- ДОШКИ УЧАСНИКА -->
 <div class="card hidden" id="sboardcard">
 <h2 id="memberBoardTitle">🔆 Стіна наживо</h2>
 <p class="lead" id="memberBoardDesc">Торкніться 💛, щоб підтримати думку, яка відгукнулась.</p>
 <div id="mboard" class="board-grid"></div>
 </div>
 <div class="card hidden" id="sweathercard">
-<h2>🌍 Погода нашого кола</h2>
-<p class="lead">Ми різні — і це нормально. Погляньте, як почуваються інші.</p>
+<h2>🌍 Погода нашого кола</h2><p class="lead">Ми різні — і це нормально. Погляньте, як почуваються інші.</p>
 <div id="mweatherboard"></div>
 </div>
 </section>
-<!-- ВЕДУЧИЙ -->
 <section class="screen" id="s-host">
 <div class="card center">
-<p class="lead" style="margin-bottom:2px">Код вашого кола</p>
-<div class="code" id="roomcode">----</div>
-<div id="linkRow">
-<div class="row" style="justify-content:center">
+<p class="lead" style="margin-bottom:2px">Код вашого кола</p><div class="code" id="roomcode">----</div>
+<div id="linkRow"><div class="row" style="justify-content:center">
 <button class="btn gold mini" onclick="copyLink()">🔗 Посилання для учасників</button>
-<button class="btn soft mini" onclick="pingTest()">📣 Перевірити зв’язок</button>
-</div>
-</div>
+<button class="btn soft mini" onclick="pingTest()">📣 Перевірити зв’язок</button></div></div>
 <div id="demoBanner" class="banner hidden">🎬 Демо‑режим</div>
-<div><span class="livebadge"><span class="beam"></span><span id="hstatus">з’єднання…</span>
-• думок: <b id="htotal">0</b> • у колі: <b id="hjoined">0</b></span></div>
+<div><span class="livebadge"><span class="beam"></span><span id="hstatus">з’єднання…</span> • думок: <b id="htotal">0</b> • у колі: <b id="hjoined">0</b></span></div>
 <div class="timerbox hidden" id="hTimerBox"><span class="timer" id="hTimer">--:--</span></div>
 </div>
 <div class="card">
@@ -595,8 +546,8 @@ body{background:#fff!important;overflow:visible}
 <button class="modecard on" data-mode="weather" onclick="setMode('weather')"><span class="mn">1</span><span class="mi">🌤️</span><span class="mt">Погода всередині</span><span class="md">Як я почуваюся просто зараз</span></button>
 <button class="modecard" data-mode="rest" onclick="setMode('rest')"><span class="mn">2</span><span class="mi">✍️</span><span class="mt">Я маю право</span><span class="md">«…відпочивати, навіть якщо…»</span></button>
 <button class="modecard" data-mode="rules" onclick="setMode('rules')"><span class="mn">3</span><span class="mi">🌊</span><span class="mt">Закінчи правила</span><span class="md">Три правила-маяки спільного простору</span></button>
-<button class="modecard" data-mode="gift" onclick="setMode('gift')"><span class="mn">4</span><span class="mi">💛</span><span class="mt">Подаруй слово</span><span class="md">Одна тепла фраза для колеги</span></button>
-<button class="modecard" data-mode="symbols" onclick="setMode('symbols')"><span class="mn">5</span><span class="mi">🕯️</span><span class="mt">Рефлексія</span><span class="md">Камінець · Ключ · Вогник</span></button>
+<button class="modecard" data-mode="gift" onclick="setMode('gift')"><span class="mn">4</span><span class="mi">💛</span><span class="mt">Подаруй слово</span><span class="md">Хмара теплих слів на одній дошці</span></button>
+<button class="modecard" data-mode="symbols" onclick="setMode('symbols')"><span class="mn">5</span><span class="mi">🪞</span><span class="mt">Рефлексія</span><span class="md">Камінець · Ключ · Вогник</span></button>
 </div>
 <h2 style="margin-top:20px">Керування</h2>
 <div class="dbtns">
@@ -609,54 +560,23 @@ body{background:#fff!important;overflow:visible}
 <button class="btn soft" onclick="startBreathing(60000)">🫁 Хвиля спокою</button>
 <button class="btn soft" onclick="simAnswers(3)">🧪 Тест +3</button>
 </div>
-<div class="field" style="margin-top:12px">
-<label>⏱ Таймер раунду</label>
-<div class="tsel" id="tsel">
-<button data-min="0" class="on">вимк.</button>
-<button data-min="1">1 хв</button>
-<button data-min="2">2 хв</button>
-<button data-min="3">3 хв</button>
-<button data-min="5">5 хв</button>
-</div>
-</div>
+<div class="field" style="margin-top:12px"><label>⏱ Таймер раунду</label>
+<div class="tsel" id="tsel"><button data-min="0" class="on">вимк.</button><button data-min="1">1 хв</button><button data-min="2">2 хв</button><button data-min="3">3 хв</button><button data-min="5">5 хв</button></div></div>
 <div class="small" id="hostHint">Статус: коло зачинене.</div>
 <div class="banner hidden" id="facilNote">🎙️ Рефлексія: дайте 1–2 хвилини, потім запросіть двох-трьох охочих висловитися голосом.</div>
 </div>
-<div class="card">
-<h2>🙋 У колі зараз</h2>
-<p class="lead">Імена учасників з’являються тут одразу після входу.</p>
-<div id="joinedList"><span class="lead">Поки що тихо…</span></div>
-</div>
-<div class="card hidden" id="hboardcard">
-<h2 id="hostBoardTitle">🗼 Спільна стіна маяків</h2>
-<div id="hboard" class="board-grid"></div>
-</div>
-<div class="card" id="hweathercard">
-<h2>🌍 Погода нашого кола</h2>
-<p class="lead">Розподіл станів учасників оновлюється наживо.</p>
-<div id="hweatherboard"></div>
-</div>
+<div class="card"><h2>🙋 У колі зараз</h2><p class="lead">Імена учасників з’являються тут одразу після входу.</p>
+<div id="joinedList"><span class="lead">Поки що тихо…</span></div></div>
+<div class="card hidden" id="hboardcard"><h2 id="hostBoardTitle">🗼 Спільна стіна маяків</h2><div id="hboard" class="board-grid"></div></div>
+<div class="card" id="hweathercard"><h2>🌍 Погода нашого кола</h2><p class="lead">Розподіл станів учасників оновлюється наживо.</p><div id="hweatherboard"></div></div>
 </section>
-<!-- НЕВІРНЕ ПОСИЛАННЯ -->
-<section class="screen" id="s-badlink">
-<div class="card center">
-<div class="wait"><div class="big">🧭</div>
-<div class="t">Посилання недійсне</div>
-<p class="lead" style="margin-top:6px">Здається, код кола загубився. Попросіть ведучого надіслати посилання ще раз.</p></div>
+<section class="screen" id="s-badlink"><div class="card center"><div class="wait"><div class="big">🧭</div>
+<div class="t">Посилання недійсне</div><p class="lead" style="margin-top:6px">Здається, код кола загубився. Попросіть ведучого надіслати посилання ще раз.</p></div></div></section>
 </div>
-</section>
-</div>
-<div class="footer">
-<div class="quote"><span class="beam-i">🌅</span> Межі не руйнують довіру. Коли вони зрозумілі, справедливі та послідовні, вони допомагають її зміцнювати.</div>
-</div>
-<!-- PRINT SHEET -->
+<div class="footer"><div class="quote"><span class="beam-i">🌅</span> Межі не руйнують довіру. Коли вони зрозумілі, справедливі та послідовні, вони допомагають її зміцнювати.</div></div>
 <div id="printSheet"></div>
-<div id="breathOverlay">
-<div id="breathCircle"></div>
-<div id="breathText">Удих</div>
-<div id="breathCount">60</div>
-<div id="breathHint">Світло маяка дихає разом із вами. Це безпечний простір.</div>
-</div>
+<div id="breathOverlay"><div id="breathCircle"></div><div id="breathText">Удих</div><div id="breathCount">60</div>
+<div id="breathHint">Світло маяка дихає разом із вами. Це безпечний простір.</div></div>
 <script>
 /* ================= ДАНІ ================= */
 const PROMPTS_RULES=[
@@ -664,16 +584,12 @@ const PROMPTS_RULES=[
 {icon:'🌱',title:'Підтримка після помилки',text:'Коли хтось помиляється, ми…',sym:'ic-sprout',cls:'b1'},
 {icon:'🫂',title:'Ресурс і допомога',text:'Якщо людині потрібна допомога, ми…',sym:'ic-hug',cls:'b2'}
 ];
-const PROMPTS_GIFT=[
-{icon:'💛',title:'Теплі слова колегам',text:'Фраза, яку я хочу подарувати…',sym:'ic-heartline',cls:'b2'}
-];
-const PROMPTS_REST=[
-{icon:'✍️',title:'Це важливо',text:'Я маю право відпочивати, навіть якщо…',sym:'ic-heartline',cls:'b1'}
-];
+const PROMPTS_GIFT=[{icon:'💛',title:'Теплі слова колегам',text:'Фраза, яку я хочу подарувати…',sym:'ic-heartline',cls:'b2'}];
+const PROMPTS_REST=[{icon:'✍️',title:'Ваші думки',text:'Я маю право відпочивати, навіть якщо…',sym:'ic-heartline',cls:'b1'}];
 const PROMPTS_SYMBOLS=[
 {icon:'🪨',title:'Камінець',text:'Я хочу залишити позаду…',sym:'ic-stone',cls:'b0'},
 {icon:'🔑',title:'Ключ',text:'Сьогодні я відкрив / відкрила для себе…',sym:'ic-key',cls:'b1'},
-{icon:'🕯️',title:'Вогник',text:'Я хочу передати іншим…',sym:'ic-flame',cls:'b2'}
+{icon:'🔥',title:'Вогник',text:'Я хочу передати іншим…',sym:'ic-flame',cls:'b2'}
 ];
 const WEATHERS=[
 {id:'sun',e:'☀️',label:'Сонячно',desc:'маю сили й натхнення',color:'#d9a441'},
@@ -682,22 +598,23 @@ const WEATHERS=[
 {id:'storm',e:'⛈️',label:'Штормить',desc:'забагато всього',color:'#143a5e'},
 {id:'rainbow',e:'🌈',label:'Веселка',desc:'тримаюся з надією',color:'#ef9a52'}
 ];
-/* Порядок сценарію: 1 Погода → 2 Я маю право → 3 Правила → 4 Слово → 5 Рефлексія */
 const MODES={
 weather:{icon:'🌤️',title:'Погода всередині',prompts:[],hTitle:'🌍 Погода нашого кола',mTitle:'🌍 Погода нашого кола',mDesc:'Розподіл станів оновлюється наживо.'},
 rest:{icon:'✍️',title:'Я маю право',prompts:PROMPTS_REST,hTitle:'✍️ Це важливо',mTitle:'✍️ Ваші думки',mDesc:'Торкніться 💛, якщо ця думка — і про вас.'},
 rules:{icon:'🌊',title:'Закінчи правила',prompts:PROMPTS_RULES,hTitle:'🗼 Спільна стіна маяків',mTitle:'🔆 Стіна наживо',mDesc:'Торкніться 💛, щоб підтримати думку, яка відгукнулась.'},
-gift:{icon:'💛',title:'Подаруй слово',prompts:PROMPTS_GIFT,hTitle:'💛 Хмара теплих слів',mTitle:'💛 Тепло колег',mDesc:'Торкніться 💛, щоб прийняти це слово.'},
-symbols:{icon:'🕯️',title:'Рефлексія',prompts:PROMPTS_SYMBOLS,hTitle:'🕯️ Скарбничка символів',mTitle:'✨ Наші предмети',mDesc:'💛 — підтримка. Охочі можуть висловитися голосом на запрошення ведучого.'}
+gift:{icon:'💛',title:'Подаруй слово',prompts:PROMPTS_GIFT,hTitle:'💛 Хмара теплих слів',mTitle:'💛 Хмара теплих слів',mDesc:'Усі слова — на одній дошці. Натисніть на слово, щоб підтримати 💛 або побачити автора.'},
+symbols:{icon:'🪞',title:'Рефлексія',prompts:PROMPTS_SYMBOLS,hTitle:'🪞 Скарбничка символів',mTitle:'✨ Наші предмети',mDesc:'💛 — підтримка. Охочі можуть висловитися голосом на запрошення ведучого.'}
 };
 const MODE_ORDER=['weather','rest','rules','gift','symbols'];
+const CLOUD_COLORS=['#d7263d','#1f6feb','#8338ec','#f46036','#0f9d58','#d81b8c','#00a3a3','#b8842a','#0e2c4d','#e63946'];
+const EMOJIS=['💛','🌟','🌻','🕊️','💪','🙏','☀️','🌈','✨','🔥','🌱','🫂','💙','😊','🤗'];
 const NAMES=['Оксана','Ігор','Марія','Тарас','Анна','Дмитро','Софія','Андрій','Наталія','Віктор'];
 const SAMPLE_RULES=[
 ['слухаємо одне одного до кінця.','шукаємо спільне рішення, а не правого.','говоримо про факти, а не про особу.','залишаємось поважними навіть у суперечці.','ставимо запитання, щоб зрозуміти іншого.'],
 ['підтримуємо, а не висміюємо.','допомагаємо виправити, а не звинувачуємо.','пам’ятаємо: помилка — частина навчання.','даємо м’який зворотний зв’язок.','не принижуємо через невдачу.'],
 ['питаємо, чим можемо допомогти.','не ігноруємо і не висміюємо.','пропонуємо конкретну підтримку.','поважаємо, якщо людина просить час.','створюємо простір, де можна попросити допомогу.']
 ];
-const SAMPLE_GIFTS=['Ти справляєшся краще, ніж думаєш.','Дякую за твою витримку сьогодні.','Не забувай дбати про себе.','Твоя енергія заряджає інших.','Ти маєш право на відпочинок.','Пишаюся тим, як ти тримаєшся.','Все буде добре. І ти впораєшся.'];
+const SAMPLE_GIFTS=['Ти справляєшся краще, ніж думаєш 💛','Дякую за твою витримку сьогодні 🙏','Не забувай дбати про себе 🌻','Твоя енергія заряджає інших ✨','Ти маєш право на відпочинок ☀️','Пишаюся тим, як ти тримаєшся 💪','Все буде добре. І ти впораєшся 🌈','Тримаймося разом 🫂','Світло всередині нас ✨','Обіймаю серцем 🤗'];
 const SAMPLE_REST=['…ще залишилися незроблені справи.','…комусь може знадобитися моя допомога.','…день був важким для всіх.','…я не встиг/ла все заплановане.','…інші продовжують працювати.','…здається, що відпочинок треба заслужити.'];
 const SAMPLE_SYMBOLS=[
 ['втому цього тижня.','образу на колегу.','страх не встигнути.','звичку все контролювати.'],
@@ -708,20 +625,20 @@ const CHANNELS=['wss://broker.emqx.io:8084/mqtt','wss://broker.hivemq.com:8884/m
 /* ================= СТАН ================= */
 let chOrder=[0,1,2], usedCh=0;
 let role=null, room='', name='', online=false, connected=false, client=null, isDemo=false;
-let launched=false, ended=false;
-let currentMode='weather';
+let launched=false, ended=false, currentMode='weather';
 let answers=new Map(), myVotes=new Set(), submitted=new Set(), joined={}, processed=new Set();
 let weatherMap=new Map(), myWeather='', mySymbol=-1;
 let botTimer=null, breathTimer=null, breathStart=0, breathDur=60000, studentStarted=false;
-let timerDur=0, timerStart=0, timerInt=null;
+let timerDur=0, timerStart=0, timerInt=null, rsT=null;
 const sid='u'+Math.random().toString(36).slice(2,8);
 const $=id=>document.getElementById(id);
-const base=()=>'opora-wall-v13/'+room;
+const base=()=>'opora-wall-v16/'+room;
 const rid=(n=6)=>Math.random().toString(36).slice(2,2+n).padEnd(n,'x');
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fmt=ts=>new Date(Number(ts)||Date.now()).toLocaleTimeString('uk-UA',{hour:'2-digit',minute:'2-digit'});
 const wById=id=>WEATHERS.find(w=>w.id===id);
 const symDone=()=>[0,1,2].some(i=>submitted.has('symbols:'+i));
+function hash(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h;}
 function genRoom(){const A='ABCDEFGHJKMNPQRSTUVWXYZ23456789';let r='';for(let i=0;i<4;i++)r+=A[Math.random()*A.length|0];return r;}
 function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);
 requestAnimationFrame(()=>t.classList.add('on'));setTimeout(()=>{t.classList.remove('on');setTimeout(()=>t.remove(),400);},2600);}
@@ -732,29 +649,34 @@ function setLeave(v){const b=$('navLeave');if(b)b.classList.toggle('hidden',!v);
 function showStart(){reset();setLeave(false);step('вибір');show('s-start');}
 function showBadLink(){reset();setLeave(false);step('—');show('s-badlink');}
 function reset(){
-clearInterval(botTimer);botTimer=null;hideBreath();stopTimer();
+clearInterval(botTimer);botTimer=null;hideBreath();stopTimer();closeCloudPop();
 if(client){try{client.end(true);}catch(e){}}
 client=null;connected=false;online=false;isDemo=false;studentStarted=false;
 role=null;room='';name='';launched=false;ended=false;currentMode='weather';
 answers=new Map();myVotes=new Set();submitted=new Set();joined={};processed=new Set();
 weatherMap=new Map();myWeather='';mySymbol=-1;
-$('hboard').innerHTML='';$('mboard').innerHTML='';
-$('hweatherboard').innerHTML='';$('mweatherboard').innerHTML='';
+$('hboard').innerHTML='';$('mboard').innerHTML='';$('hweatherboard').innerHTML='';$('mweatherboard').innerHTML='';
 $('joinedList').innerHTML='<span class="lead">Поки що тихо…</span>';
-$('swait').classList.remove('hidden');
 ['sformsRules','sformsGift','sformsWeather','sformsRest','sformsSymbols','sboardcard','sweathercard'].forEach(id=>$(id).classList.add('hidden'));
 $('demoBanner').classList.add('hidden');$('linkRow').classList.remove('hidden');
-$('mTimerBox').classList.add('hidden');$('hTimerBox').classList.add('hidden');
-$('facilNote').classList.add('hidden');
+$('mTimerBox').classList.add('hidden');$('hTimerBox').classList.add('hidden');$('facilNote').classList.add('hidden');
 for(let i=0;i<3;i++){$('in'+i).value='';$('in'+i).disabled=false;$('btn'+i).disabled=false;$('btn'+i).textContent='Додати';$('note'+i).textContent='';}
 $('giftInput').value='';$('giftInput').disabled=false;$('giftBtn').disabled=false;$('giftNote').textContent='';
 $('restInput').value='';$('restInput').disabled=false;$('restBtn').disabled=false;$('restNote').textContent='';
-$('symInput').value='';$('symInput').disabled=false;$('symBtn').disabled=false;$('symNote').textContent='';
-$('symField').classList.add('hidden');
-$('weatherNote').textContent='';
-renderMoodBig();renderSymGrid();
-updateUIForMode();
+$('symInput').value='';$('symInput').disabled=false;$('symBtn').disabled=true;$('symNote').textContent='';
+$('symField').classList.add('hidden');$('weatherNote').textContent='';
+renderMoodBig();renderSymGrid();updateUIForMode();
 }
+/* ================= СМАЙЛИКИ ================= */
+function attachEmojiBar(id){const inp=$(id);if(!inp||inp.dataset.emoji)return;inp.dataset.emoji='1';
+const bar=document.createElement('div');bar.className='emojibar';
+bar.innerHTML='<span class="el">Смайлики:</span>'+EMOJIS.map(e=>'<button type="button" class="emojibtn" data-e="'+esc(e)+'" title="Додати '+esc(e)+'" aria-label="Додати смайлик">'+e+'</button>').join('');
+inp.parentNode.insertBefore(bar,inp.nextSibling);
+bar.addEventListener('click',ev=>{const b=ev.target.closest('.emojibtn');if(!b)return;insertEmoji(id,b.dataset.e);});}
+function insertEmoji(id,e){const inp=$(id);if(!inp||inp.disabled)return;
+const s=inp.selectionStart??inp.value.length,en=inp.selectionEnd??s;
+inp.value=inp.value.slice(0,s)+e+inp.value.slice(en);
+const pos=s+e.length;inp.focus();try{inp.setSelectionRange(pos,pos);}catch(err){}}
 /* ================= ЗВ’ЯЗОК ================= */
 function loadLib(cb){if(window.mqtt){cb(true);return;}
 const urls=['https://cdn.jsdelivr.net/npm/mqtt@5/dist/mqtt.min.js','https://unpkg.com/mqtt/dist/mqtt.min.js'];let i=0;
@@ -776,69 +698,49 @@ c.on('error',()=>{if(done)return;done=true;clearTimeout(to);try{c.end(true);}cat
 function pub(t,o){if(!online||!connected||!client)return;try{client.publish(base()+'/'+t,JSON.stringify(o));}catch(e){}}
 /* ================= ВХІД ================= */
 function enterHost(r){reset();role='host';room=(r&&/^[A-Z0-9_-]{3,8}$/i.test(r))?r.toUpperCase():genRoom();
-setLeave(true);$('roomcode').textContent=room;step('ведучий • '+room);show('s-host');renderHost();
-connect(()=>renderJoined());}
+setLeave(true);$('roomcode').textContent=room;step('ведучий • '+room);show('s-host');renderHost();connect(()=>renderJoined());}
 function enterDemo(){reset();role='host';room='DEMO';isDemo=true;online=false;joined={demo:{name:'Демо‑коло'}};
 setLeave(true);$('roomcode').textContent='ДЕМО';step('демо');show('s-host');
 $('linkRow').classList.add('hidden');$('demoBanner').classList.remove('hidden');status('🎬 демо');renderHost();renderJoined();}
 function joinByCode(){const r=$('jroom').value.trim().toUpperCase();
 if(!/^[A-Z0-9_-]{3,8}$/.test(r)){alert('Введіть код з екрана ведучого.');return;}enterStudent(r);}
-function enterStudent(r){reset();role='student';room=r;name=localStorage.getItem('op_name')||'';
-setLeave(false);
+function enterStudent(r){reset();role='student';room=r;name=localStorage.getItem('op_name')||'';setLeave(false);
 $('mroom').textContent=r;$('inviteRoom').textContent=r;$('inviteName').value=name;
 step('учасник • '+r);show('s-invite');setTimeout(()=>$('inviteName').focus(),200);}
 function doStudentConnect(){name=($('inviteName').value||'').trim()||'Учасник';localStorage.setItem('op_name',name);
 if(studentStarted)return;studentStarted=true;step('учасник • '+room);show('s-member');renderMember();
 connect(ok=>{if(!ok){status('немає зв’язку');alert('Не вдалося з’єднатися. Спробуйте ще раз.');}});}
 /* ================= РЕЖИМИ ================= */
-function setMode(mode){
-if(launched){alert('Спершу завершіть поточну активність 🏁');return;}
-currentMode=mode;
-updateUIForMode();
+function setMode(mode){if(launched){alert('Спершу завершіть поточну активність 🏁');return;}
+currentMode=mode;updateUIForMode();
 $('hostHint').textContent='Статус: коло зачинене. Обрано: '+MODES[mode].icon+' '+MODES[mode].title+'.';
-$('facilNote').classList.add('hidden');
-renderBoards();
-}
-function updateUIForMode(){
-const M=MODES[currentMode];
+$('facilNote').classList.add('hidden');renderBoards();}
+function updateUIForMode(){const M=MODES[currentMode];
 document.querySelectorAll('#modeGrid .modecard').forEach(b=>b.classList.toggle('on',b.dataset.mode===currentMode));
-$('hostBoardTitle').textContent=M.hTitle;
-$('memberBoardTitle').textContent=M.mTitle;
-$('memberBoardDesc').textContent=M.mDesc;
-}
+$('hostBoardTitle').textContent=M.hTitle;$('memberBoardTitle').textContent=M.mTitle;$('memberBoardDesc').textContent=M.mDesc;}
 /* ================= ПОДІЇ ================= */
 function onMsg(topic,payload){if(!topic.startsWith(base()+'/'))return;let m;try{m=JSON.parse(payload.toString());}catch(e){return;}
 const s=topic.slice(base().length+1);
-if(s==='a')evAnswer(m);else if(s==='v')evVote(m);else if(s==='m')evMod(m);
-else if(s==='w')evWeather(m);
-else if(s==='j'&&role==='host')evJoin(m);
-else if(s==='c'&&role!=='host')evCtrl(m);}
+if(s==='a')evAnswer(m);else if(s==='v')evVote(m);else if(s==='m')evMod(m);else if(s==='w')evWeather(m);
+else if(s==='j'&&role==='host')evJoin(m);else if(s==='c'&&role!=='host')evCtrl(m);}
 function evJoin(m){joined[m.sid]={name:m.name||'Учасник'};renderJoined();toast('🙋 '+(joined[m.sid].name)+' у колі');if(launched)setTimeout(()=>sendSnap(m.sid),450);}
 function evAnswer(m){if(!m||!m.eid||processed.has(m.eid)||!launched||ended)return;processed.add(m.eid);
-const mode=MODES[m.mode]?m.mode:'rules';const pi=+m.pi;
-const maxPi=(mode==='rules'||mode==='symbols')?2:0;
-if(!(pi>=0&&pi<=maxPi))return;
-const text=String(m.text||'').trim().slice(0,180);
-if(!text&&mode!=='symbols')return;
-answers.set(m.aid,{aid:m.aid,sid:m.sid,name:String(m.name||'Анонім').slice(0,24),mode,pi,text,ts:+m.ts||Date.now(),voters:new Set(),pinned:false,hidden:false});
-renderBoards();}
-function evWeather(m){if(!m||!m.sid||!wById(m.mood))return;
-const ex=weatherMap.get(m.sid);if(ex&&ex.ts>+m.ts)return;
+const mode=MODES[m.mode]?m.mode:'rules';const pi=+m.pi;const maxPi=(mode==='rules'||mode==='symbols')?2:0;
+if(!(pi>=0&&pi<=maxPi))return;const text=String(m.text||'').trim().slice(0,180);if(!text&&mode!=='symbols')return;
+answers.set(m.aid,{aid:m.aid,sid:m.sid,name:String(m.name||'Анонім').slice(0,24),mode,pi,text,ts:+m.ts||Date.now(),voters:new Set(),pinned:false,hidden:false});renderBoards();}
+function evWeather(m){if(!m||!m.sid||!wById(m.mood))return;const ex=weatherMap.get(m.sid);if(ex&&ex.ts>+m.ts)return;
 weatherMap.set(m.sid,{sid:m.sid,name:String(m.name||'Учасник').slice(0,24),mood:m.mood,ts:+m.ts||Date.now()});
-if(m.sid===sid)myWeather=m.mood;
-renderWeatherBoards();if(role!=='host')renderWeatherUI();}
+if(m.sid===sid)myWeather=m.mood;renderWeatherBoards();if(role!=='host')renderWeatherUI();}
 function evVote(m){if(!m||!m.eid||processed.has(m.eid))return;processed.add(m.eid);const a=answers.get(m.aid);if(!a)return;
 (+m.delta>0)?a.voters.add(m.sid):a.voters.delete(m.sid);renderBoards();}
 function evMod(m){if(!m||!m.eid||processed.has(m.eid))return;processed.add(m.eid);const a=answers.get(m.aid);
 if(m.action==='pin'&&a)a.pinned=true;else if(m.action==='unpin'&&a)a.pinned=false;
 else if(m.action==='hide'&&a)a.hidden=true;else if(m.action==='show'&&a)a.hidden=false;
-else if(m.action==='delete'){answers.delete(m.aid);myVotes.delete(m.aid);}
-renderBoards();}
+else if(m.action==='delete'){answers.delete(m.aid);myVotes.delete(m.aid);}renderBoards();}
 function evCtrl(m){
 if(m.type==='ping'){toast('👋 Зв’язок працює!');return;}
 if(m.type==='launch'){launched=true;ended=false;currentMode=MODES[m.mode]?m.mode:'weather';
-const mw=weatherMap.get(sid);if(mw)myWeather=mw.mood;
-updateUIForMode();renderMember();renderBoards();status('🟢 можна відповідати');
+const mw=weatherMap.get(sid);if(mw)myWeather=mw.mood;updateUIForMode();renderMember();renderBoards();status('🟢 можна відповідати');
 if(m.timer){timerDur=+m.timer*60000;timerStart=+m.tstart||Date.now();startTimerUI();}else stopTimer();return;}
 if(m.type==='end'){ended=true;renderMember();renderBoards();status('🏁 коло завершено');stopTimer();confetti();return;}
 if(m.type==='clear'){const cm=MODES[m.mode]?m.mode:currentMode;
@@ -847,10 +749,8 @@ for(const k of[...submitted])if(k.startsWith(cm+':'))submitted.delete(k);
 if(cm==='weather'){weatherMap=new Map();myWeather='';}
 if(cm==='symbols'){mySymbol=-1;$('symField').classList.add('hidden');$('symInput').value='';}
 if(cm==='rules')for(let i=0;i<3;i++)$('in'+i).value='';
-if(cm==='gift')$('giftInput').value='';
-if(cm==='rest')$('restInput').value='';
-launched=!!m.launched;ended=false;
-renderMember();renderBoards();status(launched?'🧹 очищено • можна відповідати':'🧹 очищено');return;}
+if(cm==='gift')$('giftInput').value='';if(cm==='rest')$('restInput').value='';
+launched=!!m.launched;ended=false;renderMember();renderBoards();status(launched?'🧹 очищено • можна відповідати':'🧹 очищено');return;}
 if(m.type==='breath'){showBreath(+m.duration||60000,+m.start||Date.now());return;}
 if(m.type==='timer'){if(+m.min<=0){stopTimer();}else{timerDur=+m.min*60000;timerStart=+m.tstart||Date.now();startTimerUI();}return;}
 if(m.type==='snap'&&m.to===sid)applySnap(m);}
@@ -860,24 +760,22 @@ function applySnap(m){const inc=new Map((m.answers||[]).map(a=>[a.aid,a]));
 for(const[aid,s]of inc){const e=answers.get(aid)||{aid,sid:s.sid,name:s.name,mode:s.mode||'rules',pi:+s.pi,text:s.text,ts:+s.ts||Date.now(),voters:new Set(),pinned:false,hidden:false};
 e.name=s.name||e.name;e.text=s.text||e.text;e.mode=MODES[s.mode]?s.mode:'rules';e.pi=+s.pi;e.ts=+s.ts||e.ts;e.pinned=!!s.pinned;e.hidden=!!s.hidden;e.voters=new Set(s.voters||[]);answers.set(aid,e);}
 for(const aid of[...answers.keys()])if(!inc.has(aid))answers.delete(aid);
-weatherMap=new Map((m.weather||[]).map(w=>[w.sid,w]));
-const mw=weatherMap.get(sid);myWeather=mw?mw.mood:'';
+weatherMap=new Map((m.weather||[]).map(w=>[w.sid,w]));const mw=weatherMap.get(sid);myWeather=mw?mw.mood:'';
+/* Відновлення власного стану після перепідключення */
+submitted=new Set();myVotes=new Set();mySymbol=-1;
+for(const a of answers.values()){if(a.sid===sid){submitted.add(a.mode+':'+a.pi);if(a.mode==='symbols')mySymbol=a.pi;}if(a.voters.has(sid))myVotes.add(a.aid);}
 launched=!!m.launched;ended=!!m.ended;currentMode=MODES[m.mode]?m.mode:'weather';
-updateUIForMode();renderMember();renderBoards();
-status(ended?'🏁 коло завершено':(launched?'🟢 можна відповідати':'🟢 на зв’язку'));}
+updateUIForMode();renderMember();renderBoards();status(ended?'🏁 коло завершено':(launched?'🟢 можна відповідати':'🟢 на зв’язку'));}
 /* ================= ТАЙМЕР ================= */
 function startTimerUI(){const box=role==='host'?$('hTimerBox'):$('mTimerBox');if(box)box.classList.remove('hidden');stopTick();timerInt=setInterval(tickTimer,250);tickTimer();}
 function stopTimer(){stopTick();timerDur=0;const hb=$('hTimerBox'),mb=$('mTimerBox');if(hb)hb.classList.add('hidden');if(mb)mb.classList.add('hidden');}
 function stopTick(){if(timerInt){clearInterval(timerInt);timerInt=null;}}
 function tickTimer(){const left=Math.max(0,timerDur-(Date.now()-timerStart));const mm=String(Math.floor(left/60000)).padStart(2,'0');const ss=String(Math.floor(left%60000/1000)).padStart(2,'0');
-const txt=mm+':'+ss;const warn=left<=30000;
-['hTimer','mTimer'].forEach(id=>{const el=$(id);if(el){el.textContent=txt;el.classList.toggle('warn',warn);}});
-if(left<=0){stopTimer();}}
+const txt=mm+':'+ss;const warn=left<=30000;['hTimer','mTimer'].forEach(id=>{const el=$(id);if(el){el.textContent=txt;el.classList.toggle('warn',warn);}});if(left<=0)stopTimer();}
 $('tsel').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
-document.querySelectorAll('#tsel button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
-timerDur=(+b.dataset.min)*60000;
+document.querySelectorAll('#tsel button').forEach(x=>x.classList.remove('on'));b.classList.add('on');timerDur=(+b.dataset.min)*60000;
 if(role==='host'){if(timerDur>0){timerStart=Date.now();startTimerUI();if(online)pub('c',{type:'timer',min:+b.dataset.min,tstart:timerStart});}else{stopTimer();if(online)pub('c',{type:'timer',min:0});}}});
-/* ================= ВЕДУЧИЙ: ДІЇ ================= */
+/* ================= ВЕДУЧИЙ ================= */
 function launchActivity(){launched=true;ended=false;
 if(online)pub('c',{type:'launch',mode:currentMode,timer:timerDur>0?Math.round(timerDur/60000):0,tstart:timerStart||Date.now()});
 if(timerDur>0){timerStart=timerStart||Date.now();startTimerUI();}
@@ -888,8 +786,7 @@ function endActivity(){if(!launched){alert('Спершу відкрийте ко
 stopBots();stopTimer();$('hostHint').textContent='Статус: активність завершена. Можна обрати наступну або зберегти звіт.';
 $('facilNote').classList.add('hidden');launched=false;renderBoards();toast('🏁 Дякуємо!');confetti();}
 function clearBoard(){const M=MODES[currentMode];
-if(!confirm('Очистити відповіді активності «'+M.title+'»? Результати інших активностей збережуться.'))return;
-const keep=launched;
+if(!confirm('Очистити відповіді активності «'+M.title+'»? Результати інших активностей збережуться.'))return;const keep=launched;
 for(const[aid,a]of[...answers])if(a.mode===currentMode){answers.delete(aid);myVotes.delete(aid);}
 for(const k of[...submitted])if(k.startsWith(currentMode+':'))submitted.delete(k);
 if(currentMode==='weather'){weatherMap=new Map();myWeather='';}
@@ -901,67 +798,47 @@ function copyLink(){const u=location.href.split('#')[0].split('?')[0]+'?role=stu
 navigator.clipboard.writeText(u).then(()=>toast('🔗 Посилання скопійовано')).catch(()=>prompt('Скопіюйте:',u));}
 function startBreathing(d=60000){if(online)pub('c',{type:'breath',duration:d,start:Date.now()});showBreath(d,Date.now());}
 /* ================= МОДЕРАЦІЯ / ГОЛОС ================= */
-function boardClick(e){const b=e.target.closest('[data-act]');if(!b)return;const aid=b.dataset.aid,act=b.dataset.act,a=answers.get(aid);if(!a)return;
+function boardClick(e){const cw=e.target.closest('.cword');if(cw){openCloudPop(cw.dataset.aid,cw.getBoundingClientRect());return;}
+const b=e.target.closest('[data-act]');if(!b)return;const aid=b.dataset.aid,act=b.dataset.act,a=answers.get(aid);if(!a)return;
 if(act==='vote'){toggleVote(aid);return;}if(role!=='host')return;
-if(act==='pin')mod(aid,a.pinned?'unpin':'pin');
-else if(act==='hide')mod(aid,'hide');
-else if(act==='show')mod(aid,'show');
+if(act==='pin')mod(aid,a.pinned?'unpin':'pin');else if(act==='hide')mod(aid,'hide');else if(act==='show')mod(aid,'show');
 else if(act==='delete'){if(confirm('Видалити цю думку остаточно?'))mod(aid,'delete');}}
 function toggleVote(aid){const a=answers.get(aid);if(!a)return;const has=myVotes.has(aid);const d=has?-1:1;
 has?myVotes.delete(aid):myVotes.add(aid);has?a.voters.delete(sid):a.voters.add(sid);
 const eid='v'+rid(10);processed.add(eid);if(online&&!isDemo)pub('v',{eid,aid,sid,delta:d});renderBoards();}
 function mod(aid,action){const a=answers.get(aid);if(!a&&action!=='delete')return;const eid='m'+rid(10);processed.add(eid);
-if(action==='pin')a.pinned=true;else if(action==='unpin')a.pinned=false;else if(action==='hide')a.hidden=true;
-else if(action==='show')a.hidden=false;
+if(action==='pin')a.pinned=true;else if(action==='unpin')a.pinned=false;else if(action==='hide')a.hidden=true;else if(action==='show')a.hidden=false;
 else if(action==='delete'){answers.delete(aid);myVotes.delete(aid);}
 if(online&&!isDemo)pub('m',{eid,aid,action,by:sid});renderBoards();}
-/* ================= УЧАСНИК: ВІДПОВІДІ ================= */
+/* ================= УЧАСНИК ================= */
 function guardOpen(){if(!launched){alert('Чекайте, коли ведучий відкриє коло.');return false;}if(ended){alert('Коло завершено.');return false;}return true;}
-function pushAnswer(mode,pi,text){
-const aid='a-'+sid+'-'+mode+'-'+pi+'-'+Date.now()+'-'+rid(4),eid='e'+rid(10),ts=Date.now();
+function pushAnswer(mode,pi,text){const aid='a-'+sid+'-'+mode+'-'+pi+'-'+Date.now()+'-'+rid(4),eid='e'+rid(10),ts=Date.now();
 answers.set(aid,{aid,sid,name,mode,pi,text,ts,voters:new Set(),pinned:false,hidden:false});
-submitted.add(mode+':'+pi);processed.add(eid);
-if(online&&!isDemo)pub('a',{eid,aid,sid,name,mode,pi,text,ts});
-renderMember();renderBoards();}
-function submitAnswer(ev,pi){ev.preventDefault();if(!guardOpen())return;
-if(submitted.has('rules:'+pi))return;const inp=$('in'+pi);const text=inp.value.trim().slice(0,180);if(!text)return;
-pushAnswer('rules',pi,text);inp.value='';toast('💛 Вашу думку додано');}
-function submitGiftWord(ev){ev.preventDefault();if(!guardOpen())return;
-if(submitted.has('gift:0'))return;const inp=$('giftInput');const text=inp.value.trim().slice(0,140);if(!text)return;
-pushAnswer('gift',0,text);inp.value='';toast('💛 Ваше слово надіслано');}
-function submitRest(ev){ev.preventDefault();if(!guardOpen())return;
-if(submitted.has('rest:0'))return;const inp=$('restInput');const text=inp.value.trim().slice(0,180);if(!text)return;
-pushAnswer('rest',0,text);inp.value='';toast('💛 Дякуємо за щирість');}
+submitted.add(mode+':'+pi);processed.add(eid);if(online&&!isDemo)pub('a',{eid,aid,sid,name,mode,pi,text,ts});renderMember();renderBoards();}
+function submitAnswer(ev,pi){ev.preventDefault();if(!guardOpen())return;if(submitted.has('rules:'+pi))return;
+const inp=$('in'+pi);const text=inp.value.trim().slice(0,180);if(!text)return;pushAnswer('rules',pi,text);inp.value='';toast('💛 Вашу думку додано');}
+function submitGiftWord(ev){ev.preventDefault();if(!guardOpen())return;if(submitted.has('gift:0'))return;
+const inp=$('giftInput');const text=inp.value.trim().slice(0,140);if(!text)return;pushAnswer('gift',0,text);inp.value='';toast('💛 Ваше слово вже у хмарі');}
+function submitRest(ev){ev.preventDefault();if(!guardOpen())return;if(submitted.has('rest:0'))return;
+const inp=$('restInput');const text=inp.value.trim().slice(0,180);if(!text)return;pushAnswer('rest',0,text);inp.value='';toast('💛 Дякуємо за щирість');}
 function submitSymbol(ev){ev.preventDefault();if(!guardOpen())return;
-if(mySymbol<0){toast('Оберіть предмет');return;}if(symDone())return;
-const text=$('symInput').value.trim().slice(0,180);
-pushAnswer('symbols',mySymbol,text);$('symInput').value='';toast('✨ Ваш символ у скарбничці');}
-function selectSymbol(i){if(ended||symDone())return;mySymbol=i;
-document.querySelectorAll('#symGrid .symcard').forEach((c,idx)=>c.classList.toggle('on',idx===i));
-$('symField').classList.remove('hidden');
-$('symPrompt').textContent='«'+PROMPTS_SYMBOLS[i].text+'»';
-setTimeout(()=>$('symInput').focus(),120);}
-function pickWeather(id){if(!guardOpen())return;
-myWeather=id;const m={sid,name,mood:id,ts:Date.now()};
-weatherMap.set(sid,m);if(online&&!isDemo)pub('w',m);
-renderWeatherUI();renderWeatherBoards();toast(wById(id).e+' Ваш стан збережено');}
-/* ================= ДЕМО‑БОТИ ================= */
+if(mySymbol<0){toast('Спершу оберіть один із трьох предметів');return;}if(symDone())return;
+const text=$('symInput').value.trim().slice(0,180);pushAnswer('symbols',mySymbol,text);$('symInput').value='';toast('✨ Ваш символ у скарбничці');}
+function selectSymbol(i){if(ended||symDone())return;mySymbol=i;renderMember();setTimeout(()=>$('symInput').focus(),120);}
+function pickWeather(id){if(!guardOpen())return;myWeather=id;const m={sid,name,mood:id,ts:Date.now()};
+weatherMap.set(sid,m);if(online&&!isDemo)pub('w',m);renderWeatherUI();renderWeatherBoards();toast(wById(id).e+' Ваш стан збережено');}
+/* ================= ДЕМО ================= */
 function startBots(){stopBots();botTimer=setInterval(()=>{if(ended){stopBots();return;}
 if(currentMode==='weather'){if(weatherMap.size<9)simAnswers(1,true);}
 else if(answers.size<6||Math.random()<.5)simAnswers(1,true);
 const arr=[...answers.values()].filter(a=>a.mode===currentMode&&!a.hidden);
-if(arr.length){const a=arr[Math.random()*arr.length|0];
-if(Math.random()<.65)a.voters.add('bot'+rid(4));if(Math.random()<.08)a.pinned=true;}
+if(arr.length){const a=arr[Math.random()*arr.length|0];if(Math.random()<.65)a.voters.add('bot'+rid(4));if(Math.random()<.08)a.pinned=true;}
 renderBoards();},1500);}
 function stopBots(){clearInterval(botTimer);botTimer=null;}
 function simAnswers(n=3,silent=false){if(!launched&&!silent){alert('Спершу відкрийте коло ▶️');return;}
-for(let i=0;i<n;i++){
-const bn=NAMES[Math.random()*NAMES.length|0],bs='bot'+rid(5);
-if(currentMode==='weather'){
-const w=WEATHERS[Math.random()*WEATHERS.length|0];
-weatherMap.set(bs,{sid:bs,name:bn,mood:w.id,ts:Date.now()});
-if(online&&!isDemo&&!silent)pub('w',{sid:bs,name:bn,mood:w.id,ts:Date.now()});
-continue;}
+for(let i=0;i<n;i++){const bn=NAMES[Math.random()*NAMES.length|0],bs='bot'+rid(5);
+if(currentMode==='weather'){const w=WEATHERS[Math.random()*WEATHERS.length|0];weatherMap.set(bs,{sid:bs,name:bn,mood:w.id,ts:Date.now()});
+if(online&&!isDemo&&!silent)pub('w',{sid:bs,name:bn,mood:w.id,ts:Date.now()});continue;}
 let pi=0,text='';
 if(currentMode==='rules'){pi=Math.random()*3|0;const arr=SAMPLE_RULES[pi];text=arr[Math.random()*arr.length|0];}
 else if(currentMode==='gift'){text=SAMPLE_GIFTS[Math.random()*SAMPLE_GIFTS.length|0];}
@@ -975,299 +852,265 @@ if(!silent){renderBoards();renderWeatherBoards();}}
 function renderHost(){renderJoined();renderBoards();}
 function renderJoined(){if(role!=='host')return;const a=Object.values(joined);$('hjoined').textContent=a.length;
 $('joinedList').innerHTML=a.length?a.map(u=>'<span class="chip">🙋 '+esc(u.name)+'</span>').join(''):'<span class="lead">Поки що тихо…</span>';}
-function renderMoodBig(){const g=$('moodBigGrid');g.innerHTML='';
-WEATHERS.forEach(w=>{const b=document.createElement('button');b.type='button';b.className='moodbig';b.dataset.w=w.id;
-b.innerHTML='<span class="e">'+w.e+'</span><span class="l">'+esc(w.label)+'</span><span class="d">'+esc(w.desc)+'</span>';
-b.onclick=()=>pickWeather(w.id);g.appendChild(b);});}
-function renderSymGrid(){const g=$('symGrid');g.innerHTML='';
-PROMPTS_SYMBOLS.forEach((p,i)=>{const b=document.createElement('button');b.type='button';b.className='symcard';
-b.innerHTML='<span class="e">'+p.icon+'</span><span class="t">'+esc(p.title)+'</span><span class="p">«'+esc(p.text)+'»</span>';
-b.onclick=()=>selectSymbol(i);g.appendChild(b);});}
-function renderWeatherUI(){if(role==='host')return;
-document.querySelectorAll('#moodBigGrid .moodbig').forEach(b=>{
-b.classList.toggle('on',b.dataset.w===myWeather);b.disabled=ended;});
+function renderMoodBig(){const g=$('moodBigGrid');g.innerHTML='';WEATHERS.forEach(w=>{const b=document.createElement('button');b.type='button';b.className='moodbig';b.dataset.w=w.id;
+b.innerHTML='<span class="e">'+w.e+'</span><span class="l">'+esc(w.label)+'</span><span class="d">'+esc(w.desc)+'</span>';b.onclick=()=>pickWeather(w.id);g.appendChild(b);});}
+function renderSymGrid(){const g=$('symGrid');g.innerHTML='';PROMPTS_SYMBOLS.forEach((p,i)=>{const b=document.createElement('button');b.type='button';b.className='symcard';
+b.innerHTML='<span class="e">'+p.icon+'</span><span class="t">'+esc(p.title)+'</span><span class="p">«'+esc(p.text)+'»</span>';b.onclick=()=>selectSymbol(i);g.appendChild(b);});}
+function renderWeatherUI(){if(role==='host')return;document.querySelectorAll('#moodBigGrid .moodbig').forEach(b=>{b.classList.toggle('on',b.dataset.w===myWeather);b.disabled=ended;});
 $('weatherNote').textContent=ended?'Коло завершено. Дякуємо!':(myWeather?('Ваш вибір: '+wById(myWeather).e+' '+wById(myWeather).label+'. Можна змінити, доки коло відкрите.'):'');}
 function renderMember(){if(role==='host')return;
 const forms={weather:'sformsWeather',rest:'sformsRest',rules:'sformsRules',gift:'sformsGift',symbols:'sformsSymbols'};
-Object.values(forms).forEach(id=>$(id).classList.add('hidden'));
-$('sboardcard').classList.add('hidden');$('sweathercard').classList.add('hidden');
+Object.values(forms).forEach(id=>$(id).classList.add('hidden'));$('sboardcard').classList.add('hidden');$('sweathercard').classList.add('hidden');
 if(!launched){$('swait').classList.remove('hidden');return;}
-$('swait').classList.add('hidden');
-$(forms[currentMode]).classList.remove('hidden');
-if(currentMode==='weather'){$('sweathercard').classList.remove('hidden');renderWeatherUI();}
-else $('sboardcard').classList.remove('hidden');
-if(currentMode==='rules'){
-for(let pi=0;pi<3;pi++){const inp=$('in'+pi),btn=$('btn'+pi),nt=$('note'+pi),done=submitted.has('rules:'+pi);
-inp.disabled=ended||done;btn.disabled=ended||done;btn.textContent=done?'✅ Додано':'Додати';
-nt.textContent=done?'Вашу думку збережено.':(ended?'Коло завершено. Дякуємо!':'');}
-}else if(currentMode==='gift'){
-const done=submitted.has('gift:0');
-$('giftInput').disabled=ended||done;$('giftBtn').disabled=ended||done;
-$('giftBtn').textContent=done?'✅ Надіслано':'Надіслати тепло 💛';
-$('giftNote').textContent=done?'Ваше слово надіслано.':(ended?'Коло завершено. Дякуємо!':'');
-}else if(currentMode==='rest'){
-const done=submitted.has('rest:0');
-$('restInput').disabled=ended||done;$('restBtn').disabled=ended||done;
-$('restBtn').textContent=done?'✅ Надіслано':'Надіслати 💛';
-$('restNote').textContent=done?'Вашу думку збережено.':(ended?'Коло завершено. Дякуємо!':'');
-}else if(currentMode==='symbols'){
-const done=symDone();
+$('swait').classList.add('hidden');$(forms[currentMode]).classList.remove('hidden');
+if(currentMode==='weather'){$('sweathercard').classList.remove('hidden');renderWeatherUI();}else $('sboardcard').classList.remove('hidden');
+if(currentMode==='rules'){for(let pi=0;pi<3;pi++){const inp=$('in'+pi),btn=$('btn'+pi),nt=$('note'+pi),done=submitted.has('rules:'+pi);
+inp.disabled=ended||done;btn.disabled=ended||done;btn.textContent=done?'✅ Додано':'Додати';nt.textContent=done?'Вашу думку збережено.':(ended?'Коло завершено. Дякуємо!':'');}}
+else if(currentMode==='gift'){const done=submitted.has('gift:0');$('giftInput').disabled=ended||done;$('giftBtn').disabled=ended||done;
+$('giftBtn').textContent=done?'✅ Слово у хмарі':'Надіслати тепло 💛';$('giftNote').textContent=done?'Ваше слово вже у спільній хмарі.':(ended?'Коло завершено. Дякуємо!':'');}
+else if(currentMode==='rest'){const done=submitted.has('rest:0');$('restInput').disabled=ended||done;$('restBtn').disabled=ended||done;
+$('restBtn').textContent=done?'✅ Надіслано':'Надіслати 💛';$('restNote').textContent=done?'Вашу думку збережено.':(ended?'Коло завершено. Дякуємо!':'');}
+else if(currentMode==='symbols'){const done=symDone();
 document.querySelectorAll('#symGrid .symcard').forEach((c,idx)=>{c.disabled=ended||done;c.classList.toggle('on',done?submitted.has('symbols:'+idx):idx===mySymbol);});
-if(done){const idx=[0,1,2].find(i=>submitted.has('symbols:'+i));
-$('symField').classList.add('hidden');
+if(done){const idx=[0,1,2].find(i=>submitted.has('symbols:'+i));$('symField').classList.add('hidden');
 $('symNote').textContent='Ваш предмет: '+PROMPTS_SYMBOLS[idx].icon+' '+PROMPTS_SYMBOLS[idx].title+'. Дякуємо!';}
 else{$('symField').classList.toggle('hidden',mySymbol<0);
+if(mySymbol>=0)$('symPrompt').textContent='«'+PROMPTS_SYMBOLS[mySymbol].text+'»';
 $('symInput').disabled=ended;$('symBtn').disabled=ended||mySymbol<0;
-$('symNote').textContent=ended?'Коло завершено. Дякуємо!':(mySymbol<0?'Оберіть один із трьох предметів.':'');}
-}}
+$('symNote').textContent=ended?'Коло завершено. Дякуємо!':(mySymbol<0?'Оберіть один із трьох предметів.':'Можна завершити речення або надіслати лише обраний символ.');}}}
 function cmp(a,b){if(!!b.pinned!==!!a.pinned)return b.pinned-a.pinned;const va=a.voters.size,vb=b.voters.size;if(vb!==va)return vb-va;return a.ts-b.ts;}
 function visibleOf(mode){return[...answers.values()].filter(a=>a.mode===mode&&!a.hidden);}
-function renderBoards(){
-const isW=currentMode==='weather';
-if(role==='host'){
-$('htotal').textContent=isW?weatherMap.size:visibleOf(currentMode).length;
-$('hboardcard').classList.toggle('hidden',isW);
-$('hweathercard').classList.toggle('hidden',!isW);
-if(!isW)renderBoard($('hboard'),'host');
-}else if(launched&&!isW)renderBoard($('mboard'),'member');
+function renderBoards(){closeCloudPop();const isW=currentMode==='weather';
+if(role==='host'){$('htotal').textContent=isW?weatherMap.size:visibleOf(currentMode).length;
+$('hboardcard').classList.toggle('hidden',isW);$('hweathercard').classList.toggle('hidden',!isW);if(!isW)renderBoard($('hboard'),'host');}
+else if(launched&&!isW)renderBoard($('mboard'),'member');
 renderWeatherBoards();}
-function renderWeatherBoards(){
-const box=role==='host'?$('hweatherboard'):$('mweatherboard');if(!box)return;
-const total=weatherMap.size;
+function renderWeatherBoards(){const box=role==='host'?$('hweatherboard'):$('mweatherboard');if(!box)return;const total=weatherMap.size;
 if(!total){box.innerHTML='<div class="empty" style="margin-top:12px">🌊 Поки що ніхто не поділився погодою…</div>';return;}
 const cnt={},names={};WEATHERS.forEach(w=>{cnt[w.id]=0;names[w.id]=[];});
 for(const w of weatherMap.values()){if(cnt[w.mood]!==undefined){cnt[w.mood]++;names[w.mood].push(w.name);}}
-box.innerHTML=WEATHERS.map(w=>{
-const pct=Math.round(cnt[w.id]/total*100);
+box.innerHTML=WEATHERS.map(w=>{const pct=Math.round(cnt[w.id]/total*100);
 const fill=w.id==='rainbow'?'linear-gradient(90deg,#d9a441,#ef9a52,#4f86a8,#86b6cf)':w.color;
 const mine=(role!=='host'&&myWeather===w.id)?' mine':'';
 return '<div class="wrow'+mine+'"><div class="wtop"><span class="we">'+w.e+'</span><span class="wl">'+esc(w.label)+'<small>'+esc(w.desc)+'</small></span><span class="wc">×'+cnt[w.id]+' · '+pct+'%</span></div>'+
 '<div class="wtrack"><div class="wfill" style="width:'+Math.max(pct,cnt[w.id]?3:0)+'%;background:'+fill+'"></div></div>'+
-(names[w.id].length?'<div class="wnames">'+names[w.id].map(n=>'<span class="chip sm">'+esc(n)+'</span>').join('')+'</div>':'')+'</div>';
-}).join('');}
-function renderBoard(box,mode){if(!box)return;box.innerHTML='';
-const prompts=MODES[currentMode].prompts;
-box.classList.toggle('single',prompts.length===1);
+(names[w.id].length?'<div class="wnames">'+names[w.id].map(n=>'<span class="chip sm">'+esc(n)+'</span>').join('')+'</div>':'')+'</div>';}).join('');}
+
+/* ================= МОЗАЇКА ДЛЯ "Я МАЮ ПРАВО" ================= */
+function renderMosaic(box, mode) {
+  box.innerHTML = '';
+  const items = [...answers.values()].filter(a => a.mode === 'rest' && (mode === 'host' || !a.hidden)).sort(cmp);
+  
+  if (!items.length) {
+    box.innerHTML = '<div class="empty" style="margin-top:12px">🌊 Тут поки тихо… Додайте першу думку!</div>';
+    return;
+  }
+
+  const grid = document.createElement('div');
+  grid.className = 'mosaic-grid';
+  
+  const colors = [
+    'linear-gradient(135deg, #d9a441, #b8842a)',
+    'linear-gradient(135deg, #4f86a8, #2c5a82)',
+    'linear-gradient(135deg, #ef9a52, #c2602f)',
+    'linear-gradient(135deg, #0e2c4d, #143a5e)',
+    'linear-gradient(135deg, #86b6cf, #4f86a8)',
+    'linear-gradient(135deg, #e8bd5e, #d9a441)'
+  ];
+
+  items.forEach((a, idx) => {
+    const tile = document.createElement('div');
+    const color = colors[hash(a.aid) % colors.length];
+    const isVoted = myVotes.has(a.aid);
+    const v = a.voters.size;
+    
+    tile.className = 'mosaic-tile' + (a.pinned ? ' pinned' : '');
+    tile.style.background = color;
+    tile.style.animationDelay = (idx * 40) + 'ms';
+    
+    let voteClass = 'mt-votes' + (isVoted ? ' on' : '');
+    
+    let html = `<div class="mt-text">«${esc(a.text)}»</div>
+      <div class="mt-footer">
+        <span>🙋 ${esc(a.name)}</span>
+        <span class="${voteClass}" data-act="vote" data-aid="${a.aid}">💛 ${v}</span>
+      </div>`;
+      
+    if (mode === 'host') {
+      html += `<div class="mt-acts">
+        <button class="modbtn" data-act="pin" data-aid="${a.aid}">${a.pinned ? '☆ Відкріпити' : '🔆 Закріпити'}</button>
+        <button class="modbtn" data-act="${a.hidden ? 'show' : 'hide'}" data-aid="${a.aid}">${a.hidden ? '👁 Показати' : '🙈 Приховати'}</button>
+        <button class="modbtn" data-act="delete" data-aid="${a.aid}">🗑 Видалити</button>
+      </div>`;
+    }
+    
+    tile.innerHTML = html;
+    grid.appendChild(tile);
+  });
+  
+  box.appendChild(grid);
+}
+
+function renderBoard(box,mode){if(!box)return;
+if(currentMode==='gift'){box.classList.add('cloudmode');renderCloud(box,mode);return;}
+if(currentMode==='rest'){box.classList.add('mosaicmode');renderMosaic(box,mode);return;}
+box.classList.remove('cloudmode','mosaicmode');box.innerHTML='';const prompts=MODES[currentMode].prompts;box.classList.toggle('single',prompts.length===1);
 prompts.forEach((p,pi)=>{const col=document.createElement('section');col.className='bed';
-col.innerHTML='<div class="bed-head '+p.cls+'"><svg class="sym" viewBox="0 0 100 100" aria-hidden="true"><use href="#'+p.sym+'"/></svg>'+
-'<div class="ttl">'+p.icon+' '+esc(p.title)+'</div><div class="pr">«'+esc(p.text)+'»</div></div>';
+col.innerHTML='<div class="bed-head '+p.cls+'"><svg class="sym" viewBox="0 0 100 100" aria-hidden="true"><use href="#'+p.sym+'"/></svg><div class="ttl">'+p.icon+' '+esc(p.title)+'</div><div class="pr">«'+esc(p.text)+'»</div></div>';
 const body=document.createElement('div');body.className='bed-body';
 const list=[...answers.values()].filter(a=>a.mode===currentMode&&a.pi===pi&&(mode==='host'||!a.hidden)).sort(cmp);
-if(!list.length)body.innerHTML='<div class="empty">🌊 Тут поки тихо…</div>';
-else list.forEach((a,i)=>body.appendChild(card(a,mode,i===0&&list.length>1)));
+if(!list.length)body.innerHTML='<div class="empty">🌊 Тут поки тихо…</div>';else list.forEach((a,i)=>body.appendChild(card(a,mode,i===0&&list.length>1)));
 col.appendChild(body);box.appendChild(col);});}
-function card(a,mode,top){const el=document.createElement('article');
-el.className='flower'+(a.pinned?' pinned':'')+(top?' top':'')+(a.hidden?' is-hidden':'');el.dataset.aid=a.aid;
-const v=a.voters.size,on=myVotes.has(a.aid);let st='';
-if(v)st+='<span class="pill v">💛 '+v+'</span>';
-if(a.pinned)st+='<span class="pill p">🔆 маяк</span>';
-if(!st)st='<span class="pill n">🌱 нова думка</span>';
+function card(a,mode,top){const el=document.createElement('article');el.className='flower'+(a.pinned?' pinned':'')+(top?' top':'')+(a.hidden?' is-hidden':'');el.dataset.aid=a.aid;
+const v=a.voters.size,on=myVotes.has(a.aid);let st='';if(v)st+='<span class="pill v">💛 '+v+'</span>';if(a.pinned)st+='<span class="pill p">🔆 маяк</span>';if(!st)st='<span class="pill n">🌱 нова думка</span>';
 let act='<button class="vbtn'+(on?' on':'')+'" data-act="vote" data-aid="'+a.aid+'">'+(on?'💛 Підтримано':'💛 Підтримати')+'</button>';
-if(mode==='host'){
-act+='<button class="modbtn pin'+(a.pinned?' on':'')+'" data-act="pin" data-aid="'+a.aid+'">'+(a.pinned?'☆ Відкріпити':'🔆 Закріпити')+'</button>';
+if(mode==='host'){act+='<button class="modbtn pin'+(a.pinned?' on':'')+'" data-act="pin" data-aid="'+a.aid+'">'+(a.pinned?'☆ Відкріпити':'🔆 Закріпити')+'</button>';
 act+='<button class="modbtn" data-act="'+(a.hidden?'show':'hide')+'" data-aid="'+a.aid+'">'+(a.hidden?'👁 Показати':'🙈 Приховати')+'</button>';
-act+='<button class="modbtn del" data-act="delete" data-aid="'+a.aid+'">🗑 Видалити</button>';
-}
+act+='<button class="modbtn del" data-act="delete" data-aid="'+a.aid+'">🗑 Видалити</button>';}
 const txt=a.text?esc(a.text):'(без коментаря — лише символ)';
-el.innerHTML='<div class="f-top"><span class="f-name">🙋 '+esc(a.name)+'</span><span class="f-time">'+fmt(a.ts)+'</span></div>'+
-'<div class="f-text'+(a.text?'':' nocom')+'">'+txt+'</div><div class="f-stats">'+st+'</div><div class="f-acts">'+act+'</div>';
-return el;}
-/* ================= ДИХАННЯ ================= */
-function showBreath(d,s){clearInterval(breathTimer);breathDur=+d||60000;breathStart=+s||Date.now();
-$('breathOverlay').style.display='flex';breathTimer=setInterval(tickBreath,90);tickBreath();}
+el.innerHTML='<div class="f-top"><span class="f-name">🙋 '+esc(a.name)+'</span><span class="f-time">'+fmt(a.ts)+'</span></div><div class="f-text'+(a.text?'':' nocom')+'">'+txt+'</div><div class="f-stats">'+st+'</div><div class="f-acts">'+act+'</div>';return el;}
+/* ================= ХМАРА СЛІВ ================= */
+const mcv=document.createElement('canvas'),mctx=mcv.getContext('2d');
+function cloudColor(aid){return CLOUD_COLORS[hash(aid)%CLOUD_COLORS.length];}
+function measureCloud(text,size,maxW){
+mctx.font='900 '+size+'px Montserrat, "Segoe UI", Arial, sans-serif';
+const words=String(text).split(/\s+/);const lines=[];let cur='';
+for(const w of words){const t=cur?cur+' '+w:w;if(mctx.measureText(t).width>maxW&&cur){lines.push(cur);cur=w;}else cur=t;}
+if(cur)lines.push(cur);
+let width=0;lines.forEach(l=>{width=Math.max(width,mctx.measureText(l).width);});
+if(width>maxW){size=Math.max(13,Math.floor(size*maxW/width));mctx.font='900 '+size+'px Montserrat, "Segoe UI", Arial, sans-serif';width=0;lines.forEach(l=>{width=Math.max(width,mctx.measureText(l).width);});}
+return{lines,size,w:Math.ceil(width)+6,h:Math.ceil(lines.length*size*1.08)+4};}
+function renderCloud(box,mode){box.innerHTML='';const wrap=document.createElement('div');wrap.className='cloudwrap';
+const cloud=document.createElement('div');cloud.className='cloud';wrap.appendChild(cloud);
+const hint=document.createElement('div');hint.className='cloudhint';wrap.appendChild(hint);box.appendChild(wrap);
+const items=[...answers.values()].filter(a=>a.mode==='gift'&&(mode==='host'||!a.hidden));
+if(!items.length){cloud.style.height='auto';cloud.style.minHeight='0';cloud.innerHTML='<div class="empty" style="margin:18px">🌊 Хмара поки порожня — подаруйте перше слово…</div>';hint.textContent='💛 Тут з’являться всі слова учасників на одній дошці.';return;}
+hint.textContent='💛 '+items.length+' слів на одній дошці • натисніть на слово, щоб підтримати або побачити автора.';
+layoutCloud(cloud,items);}
+function layoutCloud(cloud,items){
+const W=Math.max(320,cloud.clientWidth||cloud.parentElement.clientWidth||860);
+const count=items.length,scale=Math.max(.62,Math.min(1.08,1.1-count*.012));
+const sorted=[...items].sort((a,b)=>(b.pinned-a.pinned)||(b.voters.size-a.voters.size)||(a.ts-b.ts));
+const maxW=Math.min(440,W*.66);
+const prep=sorted.map(a=>{let size=Math.round((19+a.voters.size*7+(a.pinned?6:0))*scale);size=Math.max(15,Math.min(58,size));
+const m=measureCloud(a.text||'💛',size,maxW);return{a,lines:m.lines,size:m.size,w:m.w,h:m.h,color:cloudColor(a.aid)};});
+const pad=20,gapX=18,gapY=16,shelves=[];let cur=[],curW=0;
+for(const it of prep){if(cur.length&&curW+it.w+gapX>W-pad*2){shelves.push(cur);cur=[];curW=0;}cur.push(it);curW+=it.w+(cur.length>1?gapX:0);}
+if(cur.length)shelves.push(cur);
+let y=pad;const placed=[];
+shelves.forEach(sh=>{const total=sh.reduce((s,i)=>s+i.w,0)+gapX*(sh.length-1);let x=Math.max(pad,(W-total)/2);const shH=Math.max(...sh.map(i=>i.h));
+sh.forEach(it=>{const jy=(hash(it.a.aid)%9)-4;placed.push({...it,x,y:y+Math.max(0,jy)+(shH-it.h)/2});x+=it.w+gapX;});y+=shH+gapY;});
+const H=Math.max(300,y+pad);cloud.style.height=H+'px';cloud.innerHTML='';
+placed.forEach((it,idx)=>{const el=document.createElement('button');el.type='button';el.className='cword'+(it.a.pinned?' pinned':'')+(it.a.hidden?' dim':'');el.dataset.aid=it.a.aid;
+el.style.cssText='left:'+it.x+'px;top:'+it.y+'px;width:'+it.w+'px;font-size:'+it.size+'px;color:'+it.color+';animation-delay:'+Math.min(idx*40,600)+'ms';
+el.innerHTML=it.lines.map(esc).join('<br>')+(it.a.pinned?'<span class="cw-pin">🔆</span>':'')+(it.a.voters.size?'<span class="cw-v">💛'+it.a.voters.size+'</span>':'');
+el.title=it.a.name+' • 💛'+it.a.voters.size;cloud.appendChild(el);});}
+function openCloudPop(aid,rect){closeCloudPop();const a=answers.get(aid);if(!a)return;
+const p=document.createElement('div');p.className='cloudpop';p.id='cloudPop';
+p.innerHTML='<div class="cp-text">'+esc(a.text)+'</div><div class="cp-meta">🙋 '+esc(a.name)+' • '+fmt(a.ts)+' • 💛 '+a.voters.size+'</div><div class="cp-acts">'+
+'<button class="vbtn'+(myVotes.has(aid)?' on':'')+'" data-cp="vote">'+(myVotes.has(aid)?'💛 Підтримано':'💛 Підтримати')+'</button>'+
+(role==='host'?'<button class="modbtn pin'+(a.pinned?' on':'')+'" data-cp="pin">'+(a.pinned?'☆ Відкріпити':'🔆 Закріпити')+'</button><button class="modbtn" data-cp="hide">'+(a.hidden?'👁 Показати':'🙈 Приховати')+'</button><button class="modbtn del" data-cp="del">🗑</button>':'')+'</div>';
+document.body.appendChild(p);
+const pw=Math.min(300,innerWidth-16),ph=p.offsetHeight||150;let L=rect.left+rect.width/2-pw/2,T=rect.bottom+10;
+if(T+ph>innerHeight-8)T=rect.top-ph-10;L=Math.max(8,Math.min(innerWidth-pw-8,L));T=Math.max(8,T);
+p.style.left=L+'px';p.style.top=T+'px';p.style.width=pw+'px';
+p.addEventListener('click',e=>{const b=e.target.closest('[data-cp]');if(!b)return;const act=b.dataset.cp;
+if(act==='vote')toggleVote(aid);else if(act==='pin')mod(aid,a.pinned?'unpin':'pin');else if(act==='hide')mod(aid,a.hidden?'show':'hide');
+else if(act==='del'){if(confirm('Видалити це слово з хмари?'))mod(aid,'delete');}closeCloudPop();});
+setTimeout(()=>document.addEventListener('click',cloudOutside),0);}
+function cloudOutside(e){if(e.target.closest('.cloudpop')||e.target.closest('.cword'))return;closeCloudPop();}
+function closeCloudPop(){const p=$('cloudPop');if(p)p.remove();document.removeEventListener('click',cloudOutside);}
+/* ================= ДИХАННЯ / ІСКРИ ================= */
+function showBreath(d,s){clearInterval(breathTimer);breathDur=+d||60000;breathStart=+s||Date.now();$('breathOverlay').style.display='flex';breathTimer=setInterval(tickBreath,90);tickBreath();}
 function hideBreath(){clearInterval(breathTimer);breathTimer=null;const o=$('breathOverlay');if(o)o.style.display='none';}
 function tickBreath(){const now=Date.now(),end=breathStart+breathDur;if(now>=end){hideBreath();return;}
 const e=now-breathStart,left=Math.ceil((end-now)/1000),cy=14000,t=e%cy;let ph='Удих',sc=.6;
 if(t<4000){ph='Удих';sc=.5+.5*(t/4000);}else if(t<8000){ph='Тримай';sc=1;}else{ph='Видих';sc=1-.5*((t-8000)/6000);}
 $('breathCircle').style.transform='scale('+sc.toFixed(3)+')';$('breathText').textContent=ph;$('breathCount').textContent=left+' сек';}
-/* ================= ІСКРИ ================= */
 function confetti(){const c=['#d9a441','#e8bd5e','#0e2c4d','#4f86a8','#ef9a52','#fff3d0'];
-for(let i=0;i<90;i++){const d=document.createElement('div');d.className='confetti';d.style.left=Math.random()*100+'vw';
-d.style.background=c[i%c.length];const sz=6+Math.random()*9;d.style.width=d.style.height=sz+'px';
-d.style.animationDuration=(2.2+Math.random()*2)+'s';d.style.animationDelay=(Math.random()*.7)+'s';
+for(let i=0;i<90;i++){const d=document.createElement('div');d.className='confetti';d.style.left=Math.random()*100+'vw';d.style.background=c[i%c.length];
+const sz=6+Math.random()*9;d.style.width=d.style.height=sz+'px';d.style.animationDuration=(2.2+Math.random()*2)+'s';d.style.animationDelay=(Math.random()*.7)+'s';
 document.body.appendChild(d);setTimeout(()=>d.remove(),5200);}}
-/* ================= СПІЛЬНІ ДАНІ ДЛЯ ЕКСПОРТУ ================= */
-function collectAll(){
-const data={};
-MODE_ORDER.forEach(m=>{data[m]=visibleOf(m).sort(cmp);});
+/* ================= ЕКСПОРТ ================= */
+function collectAll(){const data={};MODE_ORDER.forEach(m=>{data[m]=visibleOf(m).sort(cmp);});
 const wcnt={},wnames={};WEATHERS.forEach(w=>{wcnt[w.id]=0;wnames[w.id]=[];});
 for(const w of weatherMap.values()){if(wcnt[w.mood]!==undefined){wcnt[w.mood]++;wnames[w.mood].push(w.name);}}
-return{data,wcnt,wnames,wtotal:weatherMap.size};
-}
-/* ================= ТЕКСТОВИЙ ЕКСПОРТ (УСІ АКТИВНОСТІ, У ПОРЯДКУ СЦЕНАРІЮ) ================= */
-function exportAnswers(){
-const{data,wcnt,wnames,wtotal}=collectAll();
+return{data,wcnt,wnames,wtotal:weatherMap.size};}
+function exportAnswers(){const{data,wcnt,wnames,wtotal}=collectAll();
 const lines=['🌅 ТОЧКА ОПОРИ — звіт кола','Код кола: '+room,'Дата: '+new Date().toLocaleDateString('uk-UA'),''];
 lines.push('1. 🌤️ ПОГОДА ВСЕРЕДИНІ'+(wtotal?'':' (немає відповідей)'));
 if(wtotal)WEATHERS.forEach(w=>{lines.push('   '+w.e+' '+w.label+' ('+w.desc+'): '+wcnt[w.id]+' — '+Math.round(wcnt[w.id]/wtotal*100)+'%'+(wnames[w.id].length?' ['+wnames[w.id].join(', ')+']':''));});
 lines.push('');
-const textSection=(num,mode,prompts)=>{
-lines.push(num+'. '+MODES[mode].icon+' '+MODES[mode].title.toUpperCase());
-prompts.forEach((p,pi)=>{
-const rows=data[mode].filter(a=>a.pi===pi);
-lines.push('   '+p.icon+' «'+p.text+'»');
-if(!rows.length)lines.push('      • немає думок');
-rows.forEach(a=>{const f=[];if(a.pinned)f.push('🔆маяк');if(a.voters.size)f.push('💛'+a.voters.size);
-lines.push('      • '+a.name+': '+(a.text||'(без коментаря)')+(f.length?' ('+f.join(', ')+')':''));});
-});lines.push('');};
-textSection(2,'rest',PROMPTS_REST);
-textSection(3,'rules',PROMPTS_RULES);
-textSection(4,'gift',PROMPTS_GIFT);
-textSection(5,'symbols',PROMPTS_SYMBOLS);
+const textSection=(num,mode,prompts)=>{lines.push(num+'. '+MODES[mode].icon+' '+MODES[mode].title.toUpperCase());
+prompts.forEach((p,pi)=>{const rows=data[mode].filter(a=>a.pi===pi);lines.push('   '+p.icon+' «'+p.text+'»');
+if(!rows.length)lines.push('      • немає думок');rows.forEach(a=>{const f=[];if(a.pinned)f.push('🔆маяк');if(a.voters.size)f.push('💛'+a.voters.size);
+lines.push('      • '+a.name+': '+(a.text||'(без коментаря)')+(f.length?' ('+f.join(', ')+')':''));});});lines.push('');};
+textSection(2,'rest',PROMPTS_REST);textSection(3,'rules',PROMPTS_RULES);textSection(4,'gift',PROMPTS_GIFT);textSection(5,'symbols',PROMPTS_SYMBOLS);
 lines.push('Межі не руйнують довіру. Коли вони зрозумілі, справедливі та послідовні, вони допомагають її зміцнювати.');
-const full=lines.join('\n');
-navigator.clipboard.writeText(full).then(()=>toast('📄 Усі результати скопійовано')).catch(()=>prompt('Скопіюйте:',full));}
-/* ================= PDF (УСІ АКТИВНОСТІ, У ПОРЯДКУ СЦЕНАРІЮ) ================= */
-function savePdf(){
-const{data,wcnt,wnames,wtotal}=collectAll();
-const totalParticipants=Object.keys(joined).length;
-const totalAnswers=MODE_ORDER.reduce((s,m)=>s+data[m].length,0);
-const dateStr=new Date().toLocaleDateString('uk-UA',{day:'numeric',month:'long',year:'numeric'});
+const full=lines.join('\n');navigator.clipboard.writeText(full).then(()=>toast('📄 Усі результати скопійовано')).catch(()=>prompt('Скопіюйте:',full));}
+function savePdf(){const{data,wcnt,wnames,wtotal}=collectAll();const totalParticipants=Object.keys(joined).length;
+const totalAnswers=MODE_ORDER.reduce((s,m)=>s+data[m].length,0);const dateStr=new Date().toLocaleDateString('uk-UA',{day:'numeric',month:'long',year:'numeric'});
 let n=0;const head=(icon,title,quote)=>{n++;return '<div class="ps-sect-head"><div class="ps-num">'+n+'</div><div class="ps-sect-info"><div class="ps-sect-title">'+icon+' '+esc(title)+'</div><div class="ps-sect-quote">'+esc(quote)+'</div></div></div>';};
-const table=(rows,cols)=>{
-if(!rows.length)return '<div class="ps-empty">Немає відповідей у цьому розділі</div>';
-const trs=rows.map(a=>{
-const badge=a.pinned?'<span class="ps-badge">🔆 маяк</span>':'';
-return '<tr><td class="col-text">'+(a.text?esc(a.text):'<i>(без коментаря)</i>')+badge+'</td><td class="col-author">'+esc(a.name)+'</td><td class="col-votes">💛 '+a.voters.size+'</td></tr>';
-}).join('');
+const table=(rows,cols)=>{if(!rows.length)return '<div class="ps-empty">Немає відповідей у цьому розділі</div>';
+const trs=rows.map(a=>{const badge=a.pinned?'<span class="ps-badge">🔆 маяк</span>':'';
+return '<tr><td class="col-text">'+(a.text?esc(a.text):'<i>(без коментаря)</i>')+badge+'</td><td class="col-author">'+esc(a.name)+'</td><td class="col-votes">💛 '+a.voters.size+'</td></tr>';}).join('');
 return '<table class="ps-table"><thead><tr><th>'+cols[0]+'</th><th>Автор</th><th>💛</th></tr></thead><tbody>'+trs+'</tbody></table>';};
 let html='';
-/* 1. Погода */
 html+='<div class="ps-section">'+head('🌤️','Погода всередині','Яка сьогодні погода всередині вас?');
-if(wtotal){
-const trs=WEATHERS.map(w=>{const pct=Math.round(wcnt[w.id]/wtotal*100);
-const fill=w.id==='rainbow'?'linear-gradient(90deg,#d9a441,#ef9a52,#4f86a8,#86b6cf)':w.color;
+if(wtotal){const trs=WEATHERS.map(w=>{const pct=Math.round(wcnt[w.id]/wtotal*100);const fill=w.id==='rainbow'?'linear-gradient(90deg,#d9a441,#ef9a52,#4f86a8,#86b6cf)':w.color;
 return '<tr><td class="col-text">'+w.e+' '+esc(w.label)+'<div style="font-weight:600;color:#6b7c8c;font-size:10.5px">'+esc(w.desc)+'</div><div class="ps-bar"><div class="ps-fill" style="width:'+pct+'%;background:'+fill+'"></div></div>'+(wnames[w.id].length?'<div class="ps-names">'+esc(wnames[w.id].join(', '))+'</div>':'')+'</td><td class="col-votes">'+wcnt[w.id]+'</td><td class="col-pct">'+pct+'%</td></tr>';}).join('');
-html+='<table class="ps-table"><thead><tr><th>Стан</th><th>К-сть</th><th>Частка</th></tr></thead><tbody>'+trs+'</tbody></table>';
-}else html+='<div class="ps-empty">Ніхто ще не поділився погодою</div>';
-html+='</div>';
-/* 2. Завершіть речення*/
+html+='<table class="ps-table"><thead><tr><th>Стан</th><th>К-сть</th><th>Частка</th></tr></thead><tbody>'+trs+'</tbody></table>';}else html+='<div class="ps-empty">Ніхто ще не поділився погодою</div>';html+='</div>';
 html+='<div class="ps-section">'+head('✍️','Я маю право відпочивати','«Я маю право відпочивати, навіть якщо…»')+table(data.rest,['Продовження речення'])+'</div>';
-/* 3. Правила */
 html+='<div class="ps-section">'+head('🌊','Правила-маяки','Продовження правил, складених разом');
-PROMPTS_RULES.forEach((p,pi)=>{
-html+='<div class="ps-sub"><div class="ps-subtitle">'+p.icon+' '+esc(p.title)+'</div><div class="ps-subquote">«'+esc(p.text)+'»</div>'+table(data.rules.filter(a=>a.pi===pi),['Продовження правила'])+'</div>';});
-html+='</div>';
-/* 4. Подаруй слово */
-html+='<div class="ps-section">'+head('💛','Подаруй слово','Фрази, які зігрівають серце')+table(data.gift,['Тепла фраза'])+'</div>';
-/* 5. Рефлексія */
-html+='<div class="ps-section">'+head('🔆','Рефлексія','Камінець · Ключ · Вогник — підсумок зустрічі');
-PROMPTS_SYMBOLS.forEach((p,pi)=>{
-html+='<div class="ps-sub"><div class="ps-subtitle">'+p.icon+' '+esc(p.title)+'</div><div class="ps-subquote">«'+esc(p.text)+'»</div>'+table(data.symbols.filter(a=>a.pi===pi),['Відповідь'])+'</div>';});
-html+='</div>';
-$('printSheet').innerHTML=
-'<div class="ps-header"><div class="ps-org">Костянтинівський ЗЗСО I–III ступенів №16</div>'+
-'<div class="ps-title">ТОЧКА ОПОРИ</div><div class="ps-sub">Від ресурсу вчителя до безпеки дитини · повний звіт кола</div>'+
-'<div class="ps-meta"><span>Код кола: <strong>'+esc(room)+'</strong></span><span>'+dateStr+'</span>'+
-'<span>Учасників: <strong>'+totalParticipants+'</strong> · Думок: <strong>'+totalAnswers+'</strong> · Погода: <strong>'+wtotal+'</strong></span></div></div>'+
-'<div class="ps-intro">Емоційна стійкість та етика взаємин: ресурс учителя й безпека дитини. Цей звіт зібрав голоси всіх учасників у п’яти активностях кола — від внутрішньої погоди до символів рефлексії, які ми несемо далі.</div>'+
-html+
-'<div class="ps-footer"><div class="ps-quote">🌅 Межі не руйнують довіру. Коли вони зрозумілі, справедливі та послідовні, вони допомагають її зміцнювати.</div>'+
-'<div class="ps-school">Костянтинівський ЗЗСО I–III ступенів №16 · Точка опори · 2026</div></div>';
+PROMPTS_RULES.forEach((p,pi)=>{html+='<div class="ps-sub"><div class="ps-subtitle">'+p.icon+' '+esc(p.title)+'</div><div class="ps-subquote">«'+esc(p.text)+'»</div>'+table(data.rules.filter(a=>a.pi===pi),['Продовження правила'])+'</div>';});html+='</div>';
+html+='<div class="ps-section">'+head('💛','Подаруй слово','Хмара теплих слів на одній дошці')+table(data.gift,['Тепла фраза'])+'</div>';
+html+='<div class="ps-section">'+head('🪞','Рефлексія','Камінець · Ключ · Вогник — підсумок зустрічі');
+PROMPTS_SYMBOLS.forEach((p,pi)=>{html+='<div class="ps-sub"><div class="ps-subtitle">'+p.icon+' '+esc(p.title)+'</div><div class="ps-subquote">«'+esc(p.text)+'»</div>'+table(data.symbols.filter(a=>a.pi===pi),['Відповідь'])+'</div>';});html+='</div>';
+$('printSheet').innerHTML='<div class="ps-header"><div class="ps-org">Костянтинівський ЗЗСО I–III ступенів №16</div><div class="ps-title">ТОЧКА ОПОРИ</div><div class="ps-sub">Від ресурсу вчителя до безпеки дитини · повний звіт кола</div><div class="ps-meta"><span>Код кола: <strong>'+esc(room)+'</strong></span><span>'+dateStr+'</span><span>Учасників: <strong>'+totalParticipants+'</strong> · Думок: <strong>'+totalAnswers+'</strong> · Погода: <strong>'+wtotal+'</strong></span></div></div><div class="ps-intro">Емоційна стійкість та етика взаємин: ресурс учителя й безпека дитини. Цей звіт зібрав голоси всіх учасників у п’яти активностях кола — від внутрішньої погоди до хмари теплих слів і символів рефлексії.</div>'+html+'<div class="ps-footer"><div class="ps-quote">🌅 Межі не руйнують довіру. Коли вони зрозумілі, справедливі та послідовні, вони допомагають її зміцнювати.</div><div class="ps-school">Костянтинівський ЗЗСО I–III ступенів №16 · Точка опори · 2026</div></div>';
 window.print();}
-/* ================= PNG-ІЛЮСТРАЦІЯ (УСІ АКТИВНОСТІ, У ПОРЯДКУ СЦЕНАРІЮ) ================= */
 function rr(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
-async function savePng(){
-try{if(document.fonts&&document.fonts.ready)await document.fonts.ready;}catch(e){}
-const{data,wcnt,wtotal}=collectAll();
-const W=1500,M=80,CW=W-2*M;
-const mc=document.createElement('canvas').getContext('2d');
+async function savePng(){try{if(document.fonts&&document.fonts.ready)await document.fonts.ready;}catch(e){}
+const{data,wcnt,wtotal}=collectAll();const W=1500,M=80,CW=W-2*M;const mc=document.createElement('canvas').getContext('2d');
 const F=(w,s)=>w+' '+s+'px Montserrat, "Segoe UI", Arial, sans-serif';
 function wrap(text,font,maxW){mc.font=font;const words=String(text).split(/\s+/);const lines=[];let cur='';
-words.forEach(w=>{const t=cur?cur+' '+w:w;if(mc.measureText(t).width>maxW&&cur){lines.push(cur);cur=w;}else cur=t;});
-if(cur)lines.push(cur);return lines.length?lines:[''];}
-const ops=[];let num=0;
-const push=(h,draw)=>ops.push({h,draw});
-const sectionHead=(icon,title,quote)=>{num++;
-push(74,(c,y)=>{c.fillStyle='#0e2c4d';c.beginPath();c.arc(M+22,y+26,22,0,7);c.fill();
-c.fillStyle='#fff';c.font=F(900,20);c.textAlign='center';c.fillText(num,M+22,y+33);c.textAlign='left';
-c.fillStyle='#0e2c4d';c.font=F(900,27);c.fillText(icon+' '+title,M+60,y+30);
-c.fillStyle='#6b7c8c';c.font=F(600,16);c.fillText(quote,M+60,y+56);});};
-const emptyNote=t=>push(52,(c,y)=>{c.strokeStyle='#d9a441';c.setLineDash([7,6]);c.lineWidth=2;rr(c,M,y,CW,40,12);c.stroke();c.setLineDash([]);
-c.fillStyle='#6b7c8c';c.font=F(700,16);c.textAlign='center';c.fillText(t,W/2,y+26);c.textAlign='left';});
-const answerRows=(rows,cap)=>{
-if(!rows.length){emptyNote('Немає відповідей у цьому розділі');return;}
-rows.slice(0,cap).forEach(a=>{
-const lines=wrap((a.text||'(без коментаря)'),F(800,18),CW-260);
-const h=lines.length*25+34;
-push(h,(c,y)=>{c.fillStyle='#d9a441';c.beginPath();c.arc(M+12,y+16,5,0,7);c.fill();
-c.fillStyle='#0e2c4d';c.font=F(800,18);lines.forEach((l,i)=>c.fillText(l,M+30,y+22+i*25));
-c.fillStyle='#33475e';c.font=F(700,15);c.textAlign='right';
-c.fillText(a.name+(a.voters.size?'  💛'+a.voters.size:'')+(a.pinned?'  🔆':''),W-M,y+22);c.textAlign='left';
-c.strokeStyle='rgba(217,164,65,.25)';c.lineWidth=1;c.beginPath();c.moveTo(M,y+h-8);c.lineTo(W-M,y+h-8);c.stroke();});});
+words.forEach(w=>{const t=cur?cur+' '+w:w;if(mc.measureText(t).width>maxW&&cur){lines.push(cur);cur=w;}else cur=t;});if(cur)lines.push(cur);return lines.length?lines:[''];}
+const ops=[];let num=0;const push=(h,draw)=>ops.push({h,draw});
+const sectionHead=(icon,title,quote)=>{num++;push(74,(c,y)=>{c.fillStyle='#0e2c4d';c.beginPath();c.arc(M+22,y+26,22,0,7);c.fill();c.fillStyle='#fff';c.font=F(900,20);c.textAlign='center';c.fillText(num,M+22,y+33);c.textAlign='left';c.fillStyle='#0e2c4d';c.font=F(900,27);c.fillText(icon+' '+title,M+60,y+30);c.fillStyle='#6b7c8c';c.font=F(600,16);c.fillText(quote,M+60,y+56);});};
+const emptyNote=t=>push(52,(c,y)=>{c.strokeStyle='#d9a441';c.setLineDash([7,6]);c.lineWidth=2;rr(c,M,y,CW,40,12);c.stroke();c.setLineDash([]);c.fillStyle='#6b7c8c';c.font=F(700,16);c.textAlign='center';c.fillText(t,W/2,y+26);c.textAlign='left';});
+const answerRows=(rows,cap)=>{if(!rows.length){emptyNote('Немає відповідей у цьому розділі');return;}
+rows.slice(0,cap).forEach(a=>{const lines=wrap((a.text||'(без коментаря)'),F(800,18),CW-260);const h=lines.length*25+34;
+push(h,(c,y)=>{c.fillStyle='#d9a441';c.beginPath();c.arc(M+12,y+16,5,0,7);c.fill();c.fillStyle='#0e2c4d';c.font=F(800,18);lines.forEach((l,i)=>c.fillText(l,M+30,y+22+i*25));c.fillStyle='#33475e';c.font=F(700,15);c.textAlign='right';c.fillText(a.name+(a.voters.size?'  💛'+a.voters.size:'')+(a.pinned?'  🔆':''),W-M,y+22);c.textAlign='left';c.strokeStyle='rgba(217,164,65,.25)';c.lineWidth=1;c.beginPath();c.moveTo(M,y+h-8);c.lineTo(W-M,y+h-8);c.stroke();});});
 if(rows.length>cap)push(36,(c,y)=>{c.fillStyle='#a85a16';c.font=F(800,15);c.fillText('+'+(rows.length-cap)+' думок ще — повний список у PDF',M+30,y+22);});};
-const promptBlock=(p,rows,cap)=>{
-const ql=wrap('«'+p.text+'»',F(700,16),CW-40);
-push(40+ql.length*22,(c,y)=>{c.fillStyle='#143a5e';c.font=F(900,20);c.fillText(p.icon+' '+p.title,M,y+24);
-c.fillStyle='#6b7c8c';c.font='italic '+F(700,16);ql.forEach((l,i)=>c.fillText(l,M+26,y+48+i*22));});
-answerRows(rows,cap);push(16,()=>{});};
-/* Шапка */
-push(210,(c,y)=>{const g=c.createLinearGradient(0,y,W,y+180);g.addColorStop(0,'#0e2c4d');g.addColorStop(1,'#143a5e');
-c.fillStyle=g;rr(c,M,y,CW,180,20);c.fill();
-c.fillStyle='#d9a441';c.fillRect(M,y+174,CW,6);
-c.fillStyle='rgba(255,255,255,.8)';c.font=F(700,15);c.fillText('Костянтинівський ЗЗСО I–III ступенів №16',M+34,y+40);
-c.fillStyle='#fff';c.font=F(900,52);c.fillText('ТОЧКА ОПОРИ',M+34,y+98);
-c.fillStyle='#e8bd5e';c.font=F(800,20);c.fillText('Від ресурсу вчителя до безпеки дитини · повний звіт кола',M+34,y+132);
-c.fillStyle='rgba(255,255,255,.85)';c.font=F(700,15);
-c.fillText('Коло '+room+'  ·  '+new Date().toLocaleDateString('uk-UA')+'  ·  учасників: '+Object.keys(joined).length,M+34,y+160);
-c.font=F(900,60);c.textAlign='right';c.fillText('🌅',W-M-30,y+110);c.textAlign='left';});
+const promptBlock=(p,rows,cap)=>{const ql=wrap('«'+p.text+'»',F(700,16),CW-40);push(40+ql.length*22,(c,y)=>{c.fillStyle='#143a5e';c.font=F(900,20);c.fillText(p.icon+' '+p.title,M,y+24);c.fillStyle='#6b7c8c';c.font='italic '+F(700,16);ql.forEach((l,i)=>c.fillText(l,M+26,y+48+i*22));});answerRows(rows,cap);push(16,()=>{});};
+push(210,(c,y)=>{const g=c.createLinearGradient(0,y,W,y+180);g.addColorStop(0,'#0e2c4d');g.addColorStop(1,'#143a5e');c.fillStyle=g;rr(c,M,y,CW,180,20);c.fill();c.fillStyle='#d9a441';c.fillRect(M,y+174,CW,6);c.fillStyle='rgba(255,255,255,.8)';c.font=F(700,15);c.fillText('Костянтинівський ЗЗСО I–III ступенів №16',M+34,y+40);c.fillStyle='#fff';c.font=F(900,52);c.fillText('ТОЧКА ОПОРИ',M+34,y+98);c.fillStyle='#e8bd5e';c.font=F(800,20);c.fillText('Від ресурсу вчителя до безпеки дитини · повний звіт кола',M+34,y+132);c.fillStyle='rgba(255,255,255,.85)';c.font=F(700,15);c.fillText('Коло '+room+'  ·  '+new Date().toLocaleDateString('uk-UA')+'  ·  учасників: '+Object.keys(joined).length,M+34,y+160);c.font=F(900,60);c.textAlign='right';c.fillText('🌅',W-M-30,y+110);c.textAlign='left';});
 push(20,()=>{});
-/* 1. Погода */
 sectionHead('🌤️','Погода всередині','Яка сьогодні погода всередині вас?');
-if(wtotal){WEATHERS.forEach(w=>{push(72,(c,y)=>{
-const pct=Math.round(wcnt[w.id]/wtotal*100);
-c.font=F(900,26);c.fillText(w.e,M,y+30);
-c.fillStyle='#0e2c4d';c.font=F(900,18);c.fillText(w.label,M+48,y+24);
-c.fillStyle='#6b7c8c';c.font=F(600,14);c.fillText(w.desc,M+48,y+44);
-const bx=M+330,bw=CW-480;
-c.fillStyle='#f1ead8';rr(c,bx,y+18,bw,16,8);c.fill();
-if(pct>0){let fill=w.color;if(w.id==='rainbow'){fill=c.createLinearGradient(bx,0,bx+bw,0);fill.addColorStop(0,'#d9a441');fill.addColorStop(.35,'#ef9a52');fill.addColorStop(.7,'#4f86a8');fill.addColorStop(1,'#86b6cf');}
-c.fillStyle=fill;rr(c,bx,y+18,Math.max(bw*pct/100,14),16,8);c.fill();}
-c.fillStyle='#b8842a';c.font=F(900,18);c.textAlign='right';c.fillText('×'+wcnt[w.id]+' · '+pct+'%',W-M,y+32);c.textAlign='left';});});}
-else emptyNote('Ніхто ще не поділився погодою');
+if(wtotal){WEATHERS.forEach(w=>{push(72,(c,y)=>{const pct=Math.round(wcnt[w.id]/wtotal*100);c.font=F(900,26);c.fillText(w.e,M,y+30);c.fillStyle='#0e2c4d';c.font=F(900,18);c.fillText(w.label,M+48,y+24);c.fillStyle='#6b7c8c';c.font=F(600,14);c.fillText(w.desc,M+48,y+44);const bx=M+330,bw=CW-480;c.fillStyle='#f1ead8';rr(c,bx,y+18,bw,16,8);c.fill();if(pct>0){let fill=w.color;if(w.id==='rainbow'){fill=c.createLinearGradient(bx,0,bx+bw,0);fill.addColorStop(0,'#d9a441');fill.addColorStop(.35,'#ef9a52');fill.addColorStop(.7,'#4f86a8');fill.addColorStop(1,'#86b6cf');}c.fillStyle=fill;rr(c,bx,y+18,Math.max(bw*pct/100,14),16,8);c.fill();}c.fillStyle='#b8842a';c.font=F(900,18);c.textAlign='right';c.fillText('×'+wcnt[w.id]+' · '+pct+'%',W-M,y+32);c.textAlign='left';});});}else emptyNote('Ніхто ще не поділився погодою');
 push(24,()=>{});
-/* 2. Я маю право */
-sectionHead('✍️','Я маю право відпочивати','«Я маю право відпочивати, навіть якщо…»');
-answerRows(data.rest,8);push(24,()=>{});
-/* 3. Правила */
-sectionHead('🌊','Правила-маяки','Продовження правил, складених разом');
-PROMPTS_RULES.forEach((p,pi)=>promptBlock(p,data.rules.filter(a=>a.pi===pi),5));
-push(10,()=>{});
-/* 4. Подаруй слово */
-sectionHead('💛','Подаруй слово','Фрази, які зігрівають серце');
-answerRows(data.gift,8);push(24,()=>{});
-/* 5. Рефлексія */
-sectionHead('🕯️','Рефлексія','Камінець · Ключ · Вогник — підсумок зустрічі');
-PROMPTS_SYMBOLS.forEach((p,pi)=>promptBlock(p,data.symbols.filter(a=>a.pi===pi),5));
-/* Підвал */
-const q='Межі не руйнують довіру. Коли вони зрозумілі, справедливі та послідовні, вони допомагають її зміцнювати.';
-const ql=wrap('🌅 '+q,'italic '+F(700,19),CW-80);
-push(ql.length*28+90,(c,y)=>{c.fillStyle='#faf7ee';rr(c,M,y,CW,ql.length*28+70,18);c.fill();
-c.strokeStyle='rgba(217,164,65,.4)';c.lineWidth=2;rr(c,M,y,CW,ql.length*28+70,18);c.stroke();
-c.fillStyle='#0e2c4d';c.font='italic '+F(700,19);c.textAlign='center';
-ql.forEach((l,i)=>c.fillText(l,W/2,y+40+i*28));
-c.fillStyle='#6b7c8c';c.font=F(700,14);c.fillText('Костянтинівський ЗЗСО I–III ступенів №16 · Точка опори · 2026',W/2,y+ql.length*28+52);c.textAlign='left';});
-const H=ops.reduce((s,o)=>s+o.h,0)+M*2;
-const S=2,cv=document.createElement('canvas');cv.width=W*S;cv.height=H*S;
-const c=cv.getContext('2d');c.scale(S,S);
-const bg=c.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#fbf8f1');bg.addColorStop(1,'#eef3f8');
-c.fillStyle=bg;c.fillRect(0,0,W,H);
+sectionHead('✍️','Я маю право відпочивати','«Я маю право відпочивати, навіть якщо…»');answerRows(data.rest,8);push(24,()=>{});
+sectionHead('🌊','Правила-маяки','Продовження правил, складених разом');PROMPTS_RULES.forEach((p,pi)=>promptBlock(p,data.rules.filter(a=>a.pi===pi),5));push(10,()=>{});
+sectionHead('💛','Подаруй слово','Хмара теплих слів на одній дошці');answerRows(data.gift,8);push(24,()=>{});
+sectionHead('🪞','Рефлексія','Камінець · Ключ · Вогник — підсумок зустрічі');PROMPTS_SYMBOLS.forEach((p,pi)=>promptBlock(p,data.symbols.filter(a=>a.pi===pi),5));
+const q='Межі не руйнують довіру. Коли вони зрозумілі, справедливі та послідовні, вони допомагають її зміцнювати.';const ql=wrap('🌅 '+q,'italic '+F(700,19),CW-80);
+push(ql.length*28+90,(c,y)=>{c.fillStyle='#faf7ee';rr(c,M,y,CW,ql.length*28+70,18);c.fill();c.strokeStyle='rgba(217,164,65,.4)';c.lineWidth=2;rr(c,M,y,CW,ql.length*28+70,18);c.stroke();c.fillStyle='#0e2c4d';c.font='italic '+F(700,19);c.textAlign='center';ql.forEach((l,i)=>c.fillText(l,W/2,y+40+i*28));c.fillStyle='#6b7c8c';c.font=F(700,14);c.fillText('Костянтинівський ЗЗСО I–III ступенів №16 · Точка опори · 2026',W/2,y+ql.length*28+52);c.textAlign='left';});
+const H=ops.reduce((s,o)=>s+o.h,0)+M*2;const S=2,cv=document.createElement('canvas');cv.width=W*S;cv.height=H*S;const c=cv.getContext('2d');c.scale(S,S);
+const bg=c.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#fbf8f1');bg.addColorStop(1,'#eef3f8');c.fillStyle=bg;c.fillRect(0,0,W,H);
 let y=M;ops.forEach(o=>{o.draw(c,y);y+=o.h;});
-const a=document.createElement('a');a.download='tochka-opory-'+room+'.png';a.href=cv.toDataURL('image/png');
-document.body.appendChild(a);a.click();a.remove();
-toast('🖼 PNG-ілюстрацію збережено');}
+const a=document.createElement('a');a.download='tochka-opory-'+room+'.png';a.href=cv.toDataURL('image/png');document.body.appendChild(a);a.click();a.remove();toast('🖼 PNG-ілюстрацію збережено');}
 /* ================= СТАРТ ================= */
 $('hboard').addEventListener('click',boardClick);
 $('mboard').addEventListener('click',boardClick);
+window.addEventListener('resize',()=>{clearTimeout(rsT);rsT=setTimeout(()=>{if(currentMode==='gift')renderBoards();},180);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCloudPop();});
 (function init(){
-if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){
-document.querySelectorAll('svg').forEach(s=>{try{if(s.pauseAnimations)s.pauseAnimations();}catch(e){}});}
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('svg').forEach(s=>{try{if(s.pauseAnimations)s.pauseAnimations();}catch(e){}});}
 renderMoodBig();renderSymGrid();
-const p=new URLSearchParams(location.search),r=p.get('room'),ro=p.get('role');
-const ok=r&&/^[A-Z0-9_-]{3,8}$/i.test(r);
-if(ro==='student'){ if(ok) enterStudent(r.toUpperCase()); else showBadLink(); }
-else if(ro==='host'){ enterHost(ok?r.toUpperCase():''); }
-else { showStart(); }
+['in0','in1','in2','giftInput','restInput','symInput'].forEach(attachEmojiBar);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(currentMode==='gift')renderBoards();});
+const p=new URLSearchParams(location.search),r=p.get('room'),ro=p.get('role');const ok=r&&/^[A-Z0-9_-]{3,8}$/i.test(r);
+if(ro==='student'){if(ok)enterStudent(r.toUpperCase());else showBadLink();}
+else if(ro==='host'){enterHost(ok?r.toUpperCase():'');}
+else{showStart();}
 })();
 </script>
 </body>
